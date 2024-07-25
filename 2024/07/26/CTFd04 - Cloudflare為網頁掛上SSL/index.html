@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Zerocatw">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/07/26/ctfd04 - cloudflare為網頁掛上ssl/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="在GoDaddy購買域名後，利用Cloudflare託管CTFd，為網頁掛上SSL與CDN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFd04 - Cloudflare為網頁掛上SSL">
+<meta property="og:url" content="http://example.com/2024/07/26/CTFd04%20-%20Cloudflare%E7%82%BA%E7%B6%B2%E9%A0%81%E6%8E%9B%E4%B8%8ASSL/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在GoDaddy購買域名後，利用Cloudflare託管CTFd，為網頁掛上SSL與CDN">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1FawdJtC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rykSuiJFC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJsvdiyYR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Sy-9usJF0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SJo1qs1FA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Sy6CcsJFA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hk6voi1FC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/B1lehiyYR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkFKnoJK0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkVqAi1tA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rJRxy2kFC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ryqPk21FR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkHEg2yt0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ryTvxhJFR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SkjmzhJtC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/B1TMGhkFC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJDbf3JK0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HymUU21KR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HkDTU2JFA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HJlMd3kF0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1jSmT1tR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Byu6Tlet0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1g-AxxtR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkaERleKA.png">
+<meta property="article:published_time" content="2024-07-25T16:49:41.579Z">
+<meta property="article:author" content="Zerocatw">
+<meta property="article:tag" content="vps&amp;架設網站">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/H1FawdJtC.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/cat.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/cat.ico">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/cat.ico">
+    <!--- Page Info-->
+    
+    <title>
+        
+            CTFd04 - Cloudflare為網頁掛上SSL -
+        
+        Zerocatw&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=LXGW%20WenKai%20TC" rel="stylesheet">
+    
+    
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"20px","line_height":2,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"2.8rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":false},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":true,"family":"SweiGothicCJKtc-Medium","url":"https://fonts.googleapis.com/css?family=LXGW%20WenKai%20TC"},"english":{"enable":false,"family":"Hack","url":"https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css"}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":false},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":false,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://raw.githubusercontent.com/Zerocatw/Zerocatw.github.io/master/images/wallhaven.webp","dark":"https://raw.githubusercontent.com/Zerocatw/Zerocatw.github.io/master/images/wallhaven.webp"},"title":"Zerocatw's Blog","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#d1d1b6","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"},"About":{"icon":"fa-regular fa-user","path":"/about"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/7/19 20:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Zerocatw&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-solid fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-solid fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">CTFd04 - Cloudflare為網頁掛上SSL</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zerocatw</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-07-26 00:49:41</span>
+        <span class="mobile">2024-07-26 00:49:41</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CTFd/">CTFd</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">vps&amp;架設網站</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>到上一篇其實就可以正式使用CTFd平台了，不過我不想要讓我的CTFd首頁顯示「不安全」<br>所以這篇就用來記錄怎麼為我們的CTFd掛上SSL憑證</p>
+<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><ol>
+<li>一個Cloudflare帳號</li>
+<li>一個域名，我是在<a class="link" target="_blank" rel="noopener" href="https://tw.godaddy.com/">GoDaddy <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>買了.site的域名，首次一年40元XD<br>ps. 這個域名要Cloudflare支援的，可從官網的<a class="link" target="_blank" rel="noopener" href="https://www.cloudflare.com/zh-tw/tld-policies/">頂層網域名稱原則 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>看到<br>比如說Ctrl+F查詢com，發現有在上面，所以這個頂級域名是支援的<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1FawdJtC.png" alt="image"></li>
+</ol>
+<p>完成以上事情後，就可以託管Cloudflare幫我們處理全部事情!</p>
+<h2 id="掛上SSL憑證"><a href="#掛上SSL憑證" class="headerlink" title="掛上SSL憑證"></a>掛上SSL憑證</h2><p>流程 : </p>
+<ol>
+<li>註冊網域</li>
+<li>為域名設置Cloudflare DNS</li>
+<li>生成原點憑證</li>
+<li>nginx安裝SSL</li>
+</ol>
+<h3 id="註冊網域"><a href="#註冊網域" class="headerlink" title="註冊網域"></a>註冊網域</h3><p>到Cloudflare，登入後右邊點選網域註冊-&gt;移轉網域<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rykSuiJFC.png" alt="image"></p>
+<p>點選開始使用，輸入購買的網域名稱<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HJsvdiyYR.png" alt="image"></p>
+<p>點選繼續，因為有點窮，所以點免費方案就好，而且也夠用了XD，好了後按確認方案<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Sy-9usJF0.png" alt="image"></p>
+<p>之後按快速掃描並按繼續，往下滑後找到新的名稱伺服器(Nameservers)，要把我們域名的Nameservers改成Cloudflare提供的<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SJo1qs1FA.png" alt="image"></p>
+<p>我的網域名稱註冊商是GoDaddy，所以到GoDaddy的Dashboard去調整設定<br>如果不確定自己域名的註冊商是誰的話，可以到<a class="link" target="_blank" rel="noopener" href="https://lookup.icann.org/en">ICANN WHOIS <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>輸入網域確認，往下滑到Registrar Information就可以看到了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Sy6CcsJFA.png" alt="image"></p>
+<p>到GoDaddy的Dashboard後，點選DNS-&gt;名稱伺服器<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hk6voi1FC.png" alt="image"></p>
+<p>點選變更名稱伺服器-&gt;我要用自己的名稱伺服器<br>把Cloudflare給的兩個Nameservers貼上去，按儲存就ok了，成功變更<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/B1lehiyYR.png" alt="image"></p>
+<p>回到Cloudflare按繼續，等他啟用完成，雖然會說要等24hr，但通常都很快<br>看到使用中就ok了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkFKnoJK0.png" alt="image"></p>
+<h3 id="為域名設置Cloudflare-DNS"><a href="#為域名設置Cloudflare-DNS" class="headerlink" title="為域名設置Cloudflare DNS"></a>為域名設置Cloudflare DNS</h3><p>我們現在CTFd的網址應該會是一串ip，訪問後是長這樣<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkVqAi1tA.png" alt="image"></p>
+<p>現在我想要把104.199.187.67綁到ctf.mlshctf.site上<br>先回到Cloudflare，左邊點選DNS-&gt;記錄，進到這裡<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rJRxy2kFC.png" alt="image"></p>
+<p>點選新增記錄，類型選A，名稱填ctf，IPv4填104.199.187.67，按儲存就ok了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ryqPk21FR.png" alt="image"></p>
+<p>這邊記得代換自己的名稱跟IPv4喔，不要照著我填XD<br>如果是想要綁主網域(mlshctf.site)，在名稱填@就ok了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkHEg2yt0.png" alt="image"></p>
+<p>接下來訪問ctf.mlshctf.site，發現可以成功訪問惹!<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ryTvxhJFR.png" alt="image"></p>
+<p>但網頁還是顯示不安全，我們可以先回到Cloudflare，左邊點選SSL-&gt;概觀<br>把「關閉」變成「彈性」<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SkjmzhJtC.png" alt="image"></p>
+<p>之後到左邊SSL-&gt;邊緣憑證，把「一律使用 HTTPS」打開<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/B1TMGhkFC.png" alt="image"></p>
+<p>回到網頁後就會發現已建立安全連線了!<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HJDbf3JK0.png" alt="image"></p>
+<p>看起來我們已經掛上憑證了，但那只有用戶到Cloudflare之間有進行加密而已，而Cloudflare到伺服器間還是沒有進行加密的，所以我們要來為這段掛上憑證，也就是啟用完整(嚴格)</p>
+<ul>
+<li><p>彈性<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HymUU21KR.png" alt="image"></p>
+</li>
+<li><p>完整(嚴格)<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HkDTU2JFA.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="生成原點憑證"><a href="#生成原點憑證" class="headerlink" title="生成原點憑證"></a>生成原點憑證</h3><p>到Cloudflare -&gt; SSL -&gt; 原始伺服器<br>點選建立憑證<br>接下來可以依個人需求去做改動，我這邊是都不動，好了按建立<br>會拿到憑證跟KEY<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HJlMd3kF0.png" alt="image"></p>
+<p>把這兩個變成檔案放到~/CTFd/conf/nginx<br>我這裡取名為<br>原點憑證 -&gt; origin.pem<br>私密金鑰 -&gt; private.pem</p>
+<p>此時ls，應該會有3個檔案<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1jSmT1tR.png" alt="image"></p>
+<h3 id="nginx安裝SSL"><a href="#nginx安裝SSL" class="headerlink" title="nginx安裝SSL"></a>nginx安裝SSL</h3><p>先到~/CTFd/conf/nginx<br>輸入指令<code>vim http.conf</code><br>會有一段程式碼長這樣</p>
+<div class="highlight-container" data-rel="Nginx"><figure class="iseeu highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> {</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">gzip</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">client_max_body_size</span> <span class="number">4G</span>;</span><br></pre></td></tr></table></figure></div>
+<p>把這裡改成</p>
+<div class="highlight-container" data-rel="Nginx"><figure class="iseeu highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> {</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> ctf.mlshctf.site; <span class="comment">#你的網域名稱</span></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /certificates/origin.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /certificates/private.pem;</span><br></pre></td></tr></table></figure></div>
+<p>儲存後退出<br>整個http.conf會長這樣</p>
+<div class="highlight-container" data-rel="Nginx"><figure class="iseeu highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span> <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> {</span><br><span class="line">  <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> {</span><br><span class="line">  <span class="comment"># Configuration containing list of application servers</span></span><br><span class="line">  <span class="section">upstream</span> app_servers {</span><br><span class="line">    <span class="attribute">server</span> ctfd:<span class="number">8000</span>;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="section">server</span> {</span><br><span class="line"></span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> ctf.mlshctf.site; <span class="comment">#你的網域名稱</span></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /certificates/origin.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /certificates/private.pem;</span><br><span class="line">    <span class="attribute">client_max_body_size</span> <span class="number">4G</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Handle Server Sent Events for Notifications</span></span><br><span class="line">    <span class="section">location</span> /events {</span><br><span class="line">      <span class="attribute">proxy_pass</span> http://app_servers;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Connection <span class="string">''</span>;</span><br><span class="line">      <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">      <span class="attribute">chunked_transfer_encoding</span> <span class="literal">off</span>;</span><br><span class="line">      <span class="attribute">proxy_buffering</span> <span class="literal">off</span>;</span><br><span class="line">      <span class="attribute">proxy_cache</span> <span class="literal">off</span>;</span><br><span class="line">      <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Forwarded-Host <span class="variable">$server_name</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Proxy connections to the application servers</span></span><br><span class="line">    <span class="section">location</span> / {</span><br><span class="line">      <span class="attribute">proxy_pass</span> http://app_servers;</span><br><span class="line">      <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> X-Forwarded-Host <span class="variable">$server_name</span>;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>再回到~/CTFd 目錄下<br>輸入指令<code>vim docker-compose.yml</code><br>往下滑到nginx的部分會看到</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nginx:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">nginx:stable</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./conf/nginx/http.conf:/etc/nginx/nginx.conf</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">80</span><span class="string">:80</span></span><br><span class="line">  <span class="attr">depends_on:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ctfd</span></span><br></pre></td></tr></table></figure></div>
+
+
+<p>把它改成以下</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nginx:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">nginx:stable</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./conf/nginx/http.conf:/etc/nginx/nginx.conf</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./conf/nginx/origin.pem:/certificates/origin.pem:ro</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./conf/nginx/private.pem:/certificates/private.pem:ro</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">443</span><span class="string">:443</span></span><br><span class="line">  <span class="attr">depends_on:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ctfd</span></span><br></pre></td></tr></table></figure></div>
+<p>整個docker-compose.yml會長這樣</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">ctfd:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">"8000:8000"</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">UPLOAD_FOLDER=/var/uploads</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REDIS_URL=redis://cache:6379</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WORKERS=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_FOLDER=/var/log/CTFd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ACCESS_LOG=-</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ERROR_LOG=-</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REVERSE_PROXY=true</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.data/CTFd/logs:/var/log/CTFd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.data/CTFd/uploads:/var/uploads</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.:/opt/CTFd:ro</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">        <span class="attr">default:</span></span><br><span class="line">        <span class="attr">internal:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nginx:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:stable</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./conf/nginx/http.conf:/etc/nginx/nginx.conf</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./conf/nginx/origin.pem:/certificates/origin.pem:ro</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./conf/nginx/private.pem:/certificates/private.pem:ro</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">443</span><span class="string">:443</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ctfd</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mariadb:10.11</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MARIADB_ROOT_PASSWORD=ctfd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MARIADB_USER=ctfd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MARIADB_PASSWORD=ctfd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MARIADB_DATABASE=ctfd</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MARIADB_AUTO_UPGRADE=1</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.data/mysql:/var/lib/mysql</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">        <span class="attr">internal:</span></span><br><span class="line">    <span class="comment"># This command is required to set important mariadb defaults</span></span><br><span class="line">    <span class="attr">command:</span> [<span class="string">mysqld</span>, <span class="string">--character-set-server=utf8mb4</span>, <span class="string">--collation-server=utf8mb4_unicode_ci</span>, <span class="string">--wait_timeout=28800</span>, <span class="string">--log-warnings=0</span>]</span><br><span class="line"></span><br><span class="line">  <span class="attr">cache:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:4</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">.data/redis:/data</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">        <span class="attr">internal:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">    <span class="attr">default:</span></span><br><span class="line">    <span class="attr">internal:</span></span><br><span class="line">        <span class="attr">internal:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>之後重新<code>docker-compose up -d</code><br>done結束後<code>docker ps</code>確認是否有開啟443port<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Byu6Tlet0.png" alt="image"></p>
+<p>出現這樣就ok了<br>回到Cloudflare -&gt; SSL -&gt; 概觀<br>把彈性換成完整(嚴格)<br>之後再訪問一次CTFd，如果發現可以成功訪問，就代表成功設定惹<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1g-AxxtR.png" alt="image"></p>
+<p>想在更確定的話，可以把SSL關掉看看，會發現會跳出Error code 521<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkaERleKA.png" alt="image"></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p>Cloudflare介紹 : <a class="link" target="_blank" rel="noopener" href="https://medium.com/chouhsiang/30%E5%A4%A9%E6%90%9E%E6%87%82cloudflare-5-ssl-tls-c4e322aa1d4f">[Day5] SSL/TLS — 30 天入門 Cloudflare <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Cloudflare的優勢 : <a class="link" target="_blank" rel="noopener" href="https://gathering.design/blog/%E5%A6%82%E4%BD%95%E5%B0%87%E7%B6%B2%E7%AB%99%E8%A8%97%E7%AE%A1%E5%88%B0cloudflare-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E8%A6%81%E9%80%99%E9%BA%BC%E5%81%9A%EF%BC%9F/">為什麼要託管到Cloudflare <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>Cloudflare掛SSL : <a class="link" target="_blank" rel="noopener" href="https://docfunc.com/posts/92/%E4%BD%BF%E7%94%A8-cloudflare-%E5%B9%AB%E4%BD%A0%E7%9A%84%E7%B6%B2%E7%AB%99%E6%8E%9B%E4%B8%8A-ssl-%E6%86%91%E8%AD%89%E8%88%87-cdn-post">使用Cloudflare幫你的網站掛上SSL憑證與CDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>CTFd的nginx.conf範例 : <a class="link" target="_blank" rel="noopener" href="https://gist.github.com/mishrasunny174/0a579051ae0735b8cfba18ccca5391c3">mishrasunny174/nginx.conf <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>CTFd設置到這應該就結束了!感謝學校提出想要辦校內的CTF小比賽，透過架設平台學到了好多咚咚</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> CTFd04 - Cloudflare為網頁掛上SSL</li>
+        <li><strong>Author:</strong> Zerocatw</li>
+        <li><strong>Created at
+                :</strong> 2024-07-26 00:49:41</li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2024/07/26/CTFd04 - Cloudflare為網頁掛上SSL/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">#vps&amp;架設網站</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/07/20/CTFd03%20-%20%E5%8F%AA%E9%9C%80nc%E7%9A%84%E9%A1%8C%E7%9B%AE%E6%9E%B6%E8%A8%AD/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">CTFd03 - 只需nc的題目架設</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">CTFd04 - Cloudflare為網頁掛上SSL</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE"><span class="nav-text">前置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%9B%E4%B8%8ASSL%E6%86%91%E8%AD%89"><span class="nav-text">掛上SSL憑證</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E5%86%8A%E7%B6%B2%E5%9F%9F"><span class="nav-text">註冊網域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E5%9F%9F%E5%90%8D%E8%A8%AD%E7%BD%AECloudflare-DNS"><span class="nav-text">為域名設置Cloudflare DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%8E%9F%E9%BB%9E%E6%86%91%E8%AD%89"><span class="nav-text">生成原點憑證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E5%AE%89%E8%A3%9DSSL"><span class="nav-text">nginx安裝SSL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-text">後記</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Zerocatw</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        12 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.4</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/libs/anime.min.js"></script>
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
