@@ -18,13 +18,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="WriteupTarget : 94.237.54.42:56943 Recon訪問ip後可以看到登入介面![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;ry3t0C-91x.png  &#x3D;300x500) 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;rkHxMkM91l.png  &#x3D;300x50">
+        <meta name="description" content="WriteupTarget :94.237.54.42:56943 Recon訪問ip後可以看到登入介面 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片  這邊點選Profile Picture發現可以上傳圖片，所以嘗試了傳php，但最後發現都會被擋，就放棄惹  成功註冊後會進到這個頁面 全部按愛心後點選右上角的Matches發現可以找人聊天w 跟Renata聊看看，也沒發現甚麼 Explo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTB - OnlyHacks">
 <meta property="og:url" content="https://zerocatw.github.io/2025/02/18/HTB%20-%20OnlyHacks/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="WriteupTarget : 94.237.54.42:56943 Recon訪問ip後可以看到登入介面![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;ry3t0C-91x.png  &#x3D;300x500) 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;rkHxMkM91l.png  &#x3D;300x50">
+<meta property="og:description" content="WriteupTarget :94.237.54.42:56943 Recon訪問ip後可以看到登入介面 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片  這邊點選Profile Picture發現可以上傳圖片，所以嘗試了傳php，但最後發現都會被擋，就放棄惹  成功註冊後會進到這個頁面 全部按愛心後點選右上角的Matches發現可以找人聊天w 跟Renata聊看看，也沒發現甚麼 Explo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hackmd.io/_uploads/ry3t0C-91x.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkHxMkM91l.png">
 <meta property="og:image" content="https://hackmd.io/_uploads/B1mszJMcyl.png">
 <meta property="og:image" content="https://hackmd.io/_uploads/SyA0fkzcJx.png">
 <meta property="og:image" content="https://hackmd.io/_uploads/SkizQ1M9kg.png">
@@ -36,7 +38,7 @@
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="IDOR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hackmd.io/_uploads/B1mszJMcyl.png">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/ry3t0C-91x.png">
     
     
     <!--- Icon Part-->
@@ -585,9 +587,9 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><p>Target : 94.237.54.42:56943</p>
-<h3 id="Recon"><a href="#Recon" class="headerlink" title="Recon"></a>Recon</h3><p>訪問ip後可以看到登入介面<br>![image](<a class="link" target="_blank" rel="noopener" href="https://hackmd.io/_uploads/ry3t0C-91x.png">https://hackmd.io/_uploads/ry3t0C-91x.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> =300x500)</p>
-<p>點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片<br>![image](<a class="link" target="_blank" rel="noopener" href="https://hackmd.io/_uploads/rkHxMkM91l.png">https://hackmd.io/_uploads/rkHxMkM91l.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> =300x500)</p>
+            <h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><p>Target :<code>94.237.54.42:56943</code></p>
+<h3 id="Recon"><a href="#Recon" class="headerlink" title="Recon"></a>Recon</h3><p>訪問ip後可以看到登入介面<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ry3t0C-91x.png" alt="image"></p>
+<p>點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkHxMkM91l.png" alt="image"></p>
 <blockquote>
 <p>這邊點選<code>Profile Picture</code>發現可以上傳圖片，所以嘗試了傳php，但最後發現都會被擋，就放棄惹</p>
 </blockquote>
