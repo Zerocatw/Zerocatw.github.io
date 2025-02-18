@@ -13,21 +13,28 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://zerocatw.github.io/about/"/>
+    <link rel="canonical" href="https://zerocatw.github.io/2025/01/03/ctfd01 - 平台架設/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="About競賽參與2023 資安女婕思-資安闖天關, @Nothing, rk.3 金盾獎(國高中組), @想不到隊名, rk.10 MyFirstCTF AIS3 Pre-exam T貓盃, 優勝  2024 資安女婕思-資安闖天關, @Something, rk.3 離島盃資安競賽, rk.3 AIS3 Pre-exam, rk.94 FhCTF, @我老師瑞南, rk.1 THJCC CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://zerocatw.github.io/about/index.html">
+        <meta name="description" content="在虛擬機架設自己的CTFd平台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFd01 - 平台架設">
+<meta property="og:url" content="https://zerocatw.github.io/2025/01/03/CTFd01%20-%20%E5%B9%B3%E5%8F%B0%E6%9E%B6%E8%A8%AD/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="About競賽參與2023 資安女婕思-資安闖天關, @Nothing, rk.3 金盾獎(國高中組), @想不到隊名, rk.10 MyFirstCTF AIS3 Pre-exam T貓盃, 優勝  2024 資安女婕思-資安闖天關, @Something, rk.3 離島盃資安競賽, rk.3 AIS3 Pre-exam, rk.94 FhCTF, @我老師瑞南, rk.1 THJCC CTF">
+<meta property="og:description" content="在虛擬機架設自己的CTFd平台">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-19T15:11:34.000Z">
+<meta property="og:image" content="https://hackmd.io/_uploads/BkAoHZYOC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/H1Cc8WYd0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SJ5CUbYuA.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/S1kKL-tOR.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/BJs8wbY_R.png">
+<meta property="article:published_time" content="2025-01-03T12:48:36.239Z">
 <meta property="article:author" content="Zerocatw">
+<meta property="article:tag" content="vps&amp;架設網站">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/BkAoHZYOC.png">
     
     
     <!--- Icon Part-->
@@ -39,7 +46,7 @@
     
     <title>
         
-            About -
+            CTFd01 - 平台架設 -
         
         Zerocatw&#39;s Blog
     </title>
@@ -101,7 +108,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 <body>
@@ -216,7 +335,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/about"
                                         >
                                     <i class="fa-regular fa-user fa-fw"></i>
@@ -330,7 +449,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/about"
                         >
                             <span>
@@ -380,52 +499,222 @@
             <div class="main-content">
 
                 
-                    <div class="page-template-container">
-    
-    
-    
-    <div class="page-template-content markdown-body">
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">CTFd01 - 平台架設</h1>
+                </div>
+            
+            </div>
+
         
-            <h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><h3 id="競賽參與"><a href="#競賽參與" class="headerlink" title="競賽參與"></a>競賽參與</h3><h4 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h4><ul>
-<li>資安女婕思-資安闖天關, @Nothing, rk.3</li>
-<li>金盾獎(國高中組), @想不到隊名, rk.10</li>
-<li>MyFirstCTF</li>
-<li>AIS3 Pre-exam</li>
-<li>T貓盃, 優勝</li>
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zerocatw</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-01-03 20:48:36</span>
+        <span class="mobile">2025-01-03 20:48:36</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CTFd/">CTFd</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">vps&amp;架設網站</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這個CTFd系列主要是用來記錄我當初是怎麼架設的<br>怕之後會忘記，且網路上比較少看到這類的文章，就來寫一篇惹<br>可配合<a class="link" target="_blank" rel="noopener" href="http://localhost:4000/categories/GCP/">GCP系列 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>的文章架設出大家都能連上的CTFd</p>
+<h2 id="CTFd環境"><a href="#CTFd環境" class="headerlink" title="CTFd環境"></a>CTFd環境</h2><p>在此示範的環境</p>
+<ul>
+<li>Vps <ul>
+<li>GCP</li>
 </ul>
-<h4 id="2024"><a href="#2024" class="headerlink" title="2024"></a>2024</h4><ul>
-<li>資安女婕思-資安闖天關, @Something, rk.3</li>
-<li>離島盃資安競賽, rk.3</li>
-<li>AIS3 Pre-exam, rk.94</li>
-<li>FhCTF, @我老師瑞南, rk.1</li>
-<li>THJCC CTF, rk.13&#x2F;64</li>
-<li>TSCCTF, rk.37&#x2F;165</li>
-<li>VishwaCTF, @4c4, rk.200&#x2F;1033</li>
-<li>PicoCTF, @4c4, rk.615&#x2F;6957</li>
+</li>
+<li>Version<ul>
+<li>Ubuntu 20.04 LTS x86/64</li>
 </ul>
-<h4 id="2025"><a href="#2025" class="headerlink" title="2025"></a>2025</h4><ul>
-<li>AIS3 EOF, @GCCSHY, rk.5</li>
+</li>
+<li>Hard Disk<ul>
+<li>60 GB</li>
 </ul>
-<h3 id="活動參與"><a href="#活動參與" class="headerlink" title="活動參與"></a>活動參與</h3><ul>
-<li>2023 AIS3 軟體安全組</li>
-<li>第八、九屆臺灣好厲駭學員</li>
-<li>2023 iThome鐵人賽-Security組</li>
-<li>HITCON ZeroDay- ZD-2023-00487</li>
-<li>2024 CYBERSEC</li>
-<li>2024 行政院網路攻防演練攻擊手</li>
+</li>
+<li>machine<ul>
+<li>e2-medium (1~2vCPU、4RAM)</li>
 </ul>
-<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/Zerocatw" >Github <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20162613" >iThome <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li>Discord : catcat4561</li>
+</li>
 </ul>
+<h2 id="架設CTFd的流程"><a href="#架設CTFd的流程" class="headerlink" title="架設CTFd的流程"></a>架設CTFd的流程</h2><p>我把它分成四步驟</p>
+<ol>
+<li>建立好Vps環境</li>
+<li>在虛擬機安裝基本開發環境與工具(eg. Docker……)</li>
+<li>抓取CTFd，並用Docker架起來，便成功架設了!</li>
+<li>掛CDN(非必要)</li>
+</ol>
+<p>其中步驟1可以在GCP系列的文章建立好<br>步驟4在後面的文章會提到</p>
+<h3 id="在虛擬機安裝基本開發環境與工具"><a href="#在虛擬機安裝基本開發環境與工具" class="headerlink" title="在虛擬機安裝基本開發環境與工具"></a>在虛擬機安裝基本開發環境與工具</h3><p>在虛擬機輸入以下指令，不想一行一行打的話可以先<code>vim setup.sh</code>，把指令貼上之後./setup.sh就可以執行了<br>ps. 如果執行的時候遇到Permission denied，記得要<code>chmod +x setup.sh</code></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y docker.io</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install git</span><br><span class="line"><span class="built_in">sudo</span> apt-get -y install python3-pip</span><br><span class="line">wget https://github.com/docker/compose/releases/download/v2.30.3/docker-compose-linux-x86_64</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> docker-compose-linux-x86_64 /usr/bin/docker-compose</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure></div>
+
+<p>好了之後輸入以下指令，確認是否安裝成功</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure></div>
+<p>有出現版本就代表成功了<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BkAoHZYOC.png" alt="image"></p>
+<h3 id="抓取CTFd，之後用Docker架起來"><a href="#抓取CTFd，之後用Docker架起來" class="headerlink" title="抓取CTFd，之後用Docker架起來"></a>抓取CTFd，之後用Docker架起來</h3><p>接下來就是架設CTFd平台，先用git clone抓取CTFd，再用docker架起來(最後docker-compose會需要跑一段時間，耐心等待就好)<br>一樣輸入指令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/CTFd/CTFd.git</span><br><span class="line"><span class="built_in">cd</span> CTFd</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure></div>
+<p>最後跳出這四行done就是結束惹<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/H1Cc8WYd0.png" alt="image"></p>
+<p>輸入指令再確認是否成功</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></div>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SJ5CUbYuA.png" alt="image"><br>出現以上就代表成功架設惹，就可以去訪問VM的外部ip<br>我這裡的話是104.199.187.67<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/S1kKL-tOR.png" alt="image"></p>
+<p>訪問網址 : <a class="link" target="_blank" rel="noopener" href="http://104.199.187.67/">http://104.199.187.67 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a><br>注意是http，如果直接點那個外部ip的連結，他會導向的是https，導致無法訪問<br>成功連上<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/BJs8wbY_R.png" alt="image"></p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>接下來的設定就依個人需求設定~下一篇是Pwn的題目架設</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> CTFd01 - 平台架設</li>
+        <li><strong>Author:</strong> Zerocatw</li>
+        <li><strong>Created at
+                :</strong> 2025-01-03 20:48:36</li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/01/03/CTFd01 - 平台架設/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">#vps&amp;架設網站</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2025/01/03/GCP02%20-%20%E5%BB%BA%E7%AB%8B%E5%9B%BA%E6%85%8Bip/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">GCP02 - 建立固態ip</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2025/01/03/CTFd02%20-%20Pwn%E9%A1%8C%E7%9B%AE%E6%9E%B6%E8%A8%AD/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">CTFd02 - Pwn題目架設</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
 
         
     </div>
-    <div class="page-template-comments">
-        
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">CTFd01 - 平台架設</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTFd%E7%92%B0%E5%A2%83"><span class="nav-text">CTFd環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E8%A8%ADCTFd%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-text">架設CTFd的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E8%99%9B%E6%93%AC%E6%A9%9F%E5%AE%89%E8%A3%9D%E5%9F%BA%E6%9C%AC%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E8%88%87%E5%B7%A5%E5%85%B7"><span class="nav-text">在虛擬機安裝基本開發環境與工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%93%E5%8F%96CTFd%EF%BC%8C%E4%B9%8B%E5%BE%8C%E7%94%A8Docker%E6%9E%B6%E8%B5%B7%E4%BE%86"><span class="nav-text">抓取CTFd，之後用Docker架起來</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-text">後記</span></a></li></ol>
+
     </div>
 </div>
+        </div>
+    
+</div>
+
 
 
                 
@@ -492,6 +781,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">

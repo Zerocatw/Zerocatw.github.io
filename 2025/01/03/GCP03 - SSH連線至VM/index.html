@@ -13,18 +13,28 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://zerocatw.github.io/page/2/"/>
+    <link rel="canonical" href="https://zerocatw.github.io/2025/01/03/gcp03 - ssh連線至vm/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://zerocatw.github.io/page/2/index.html">
+        <meta name="description" content="讓本地可以SSH連上VM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCP03 - SSH連線至VM">
+<meta property="og:url" content="https://zerocatw.github.io/2025/01/03/GCP03%20-%20SSH%E9%80%A3%E7%B7%9A%E8%87%B3VM/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="讓本地可以SSH連上VM">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hackmd.io/_uploads/Sk5kDu_uC.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/rkRhb9rFp.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/Hyj_WFud0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/r1zmVKdd0.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/ry5BVF_OC.png">
+<meta property="article:published_time" content="2025-01-03T12:48:36.265Z">
 <meta property="article:author" content="Zerocatw">
+<meta property="article:tag" content="vps&amp;架設網站">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/Sk5kDu_uC.png">
     
     
     <!--- Icon Part-->
@@ -35,6 +45,8 @@
     <!--- Page Info-->
     
     <title>
+        
+            GCP03 - SSH連線至VM -
         
         Zerocatw&#39;s Blog
     </title>
@@ -228,41 +240,6 @@ mjx-container[display="true"] + br {
 <main class="page-container" id="swup">
 
     
-        <style>
-    .home-article-item,
-    .sidebar-links,
-    .sidebar-content,
-    a.page-number,
-    a.extend,
-    .sidebar-links .links:hover,
-    .right-bottom-tools,
-    footer.footer {
-        background-color: var(--background-color-transparent-80) !important;
-    }
-    .right-bottom-tools:hover,
-    a.page-number:hover,
-    a.extend:hover {
-        background-color: var(--primary-color) !important;
-    }
-    .site-info,
-    .home-article-sticky-label {
-        background-color: var(--background-color-transparent-15) !important;
-    }
-    .home-article-sticky-label {
-        backdrop-filter: none !important;
-    }
-    .home-banner-background {
-        filter: blur(15px);
-    }
-</style>
-
-<div class="home-banner-background transition-fade fixed top-0 left-0 w-screen h-screen scale-125 sm:scale-110 box-border will-change-transform bg-cover">
-    <img src="/images/FotoJet.jpg" alt="home-banner-background" class="w-full h-full object-cover dark:hidden">
-    <img src="/images/FotoJet.jpg" alt="home-banner-background" class="w-full h-full object-cover hidden dark:block">
-</div>
-
-
-    
 
     <div class="main-content-container">
 
@@ -274,9 +251,9 @@ mjx-container[display="true"] + br {
         <div class="left">
             
             <a class="logo-title" href="/">
-                <h1>
+                
                 Zerocatw&#39;s Blog
-                </h1>
+                
             </a>
         </div>
 
@@ -290,7 +267,7 @@ mjx-container[display="true"] + br {
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
@@ -392,7 +369,7 @@ mjx-container[display="true"] + br {
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/"
                         >
                             <span>
@@ -518,194 +495,230 @@ mjx-container[display="true"] + br {
         <div class="main-content-body">
 
             
-                <div class="home-sidebar-container">
-    <div class="sticky-container sticky">
-        
-        
-            
-            <div class="sidebar-content" >
-                <div class="avatar flex justify-center">
-    <img src="/images/cat.jpg">
-</div>
-                <div class="author flex flex-col justify-center my-2.5 mx-0">
-    <div class="name">Zerocatw</div>
-    
-</div>
-                <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
-        <div class="label text-third-text-color text-sm">Tags</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
-        <div class="label text-third-text-color text-sm">Categories</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
-        <div class="label text-third-text-color text-sm">Posts</div>
-    </a>
-</div>
-            </div>
-        
-
-    </div>
-</div>
-
-            
 
             <div class="main-content">
 
                 
-                    <div class="home-content-container">
-    <ul class="home-article-list">
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">GCP03 - SSH連線至VM</h1>
+                </div>
+            
+            </div>
+
         
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/2025/01/03/CTFd01%20-%20%E5%B9%B3%E5%8F%B0%E6%9E%B6%E8%A8%AD/">
-                            CTFd01 - 平台架設
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            <p>在虛擬機架設自己的CTFd平台</p>
-
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zerocatw</span>
                         
                     </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-01-03 20:48:36</span>
+        <span class="mobile">2025-01-03 20:48:36</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
 
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Jan 03 2025 20:48:36 GMT+0800">
-                
-                    2025-01-03
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
             <ul>
                 
                 
                     
                         
                         <li>
-                            <a href="/categories/CTFd/">CTFd</a>&nbsp;
+                            <a href="/categories/GCP/">GCP</a>&nbsp;
                         </li>
                     
                     
                 
             </ul>
         </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">vps&amp;架設網站</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2025/01/03/CTFd01%20-%20%E5%B9%B3%E5%8F%B0%E6%9E%B6%E8%A8%AD/">Read more<span class="seo-reader-text">CTFd01 - 平台架設</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/2025/01/03/CTFd02%20-%20Pwn%E9%A1%8C%E7%9B%AE%E6%9E%B6%E8%A8%AD/">
-                            CTFd02 - Pwn題目架設
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            <p>利用xinetd搭建Pwn題目</p>
-
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Jan 03 2025 20:48:36 GMT+0800">
-                
-                    2025-01-03
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
             <ul>
                 
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/CTFd/">CTFd</a>&nbsp;
-                        </li>
-                    
-                    
+                    <li>
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">vps&amp;架設網站</a>&nbsp;
+                    </li>
                 
             </ul>
         </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">vps&amp;架設網站</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
+    
 
-    <a href="/2025/01/03/CTFd02%20-%20Pwn%E9%A1%8C%E7%9B%AE%E6%9E%B6%E8%A8%AD/">Read more<span class="seo-reader-text">CTFd02 - Pwn題目架設</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    
+    
+    
+    
 </div>
 
+                    </div>
                 </div>
-            </li>
+            </div>
         
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有了VM，有了固態ip，是時候連上我們的VM了<br>連上的方法用的是SSH，這篇會來講解有哪些設定要調，最後才能成功連上VM</p>
+<h2 id="SSH設置"><a href="#SSH設置" class="headerlink" title="SSH設置"></a>SSH設置</h2><p>流程 :<br>    1. 更改 SSH 設定允許 Root 登錄和密碼驗證<br>    2. 生成公私鑰，把公鑰放到VM上<br>    3. 本地SSH連線至VM</p>
+<h3 id="更改-SSH-設定允許-Root-登錄和密碼驗證"><a href="#更改-SSH-設定允許-Root-登錄和密碼驗證" class="headerlink" title="更改 SSH 設定允許 Root 登錄和密碼驗證"></a>更改 SSH 設定允許 Root 登錄和密碼驗證</h3><p>先點SSH，直接透過瀏覽器進行 SSH 連線<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Sk5kDu_uC.png" alt="image"></p>
+<p>成功進去後輸入指令</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> su</span><br><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></div>
+
+<p>接下來更改以下兩個選項<br>PermitRootLogin prohibit-password -&gt; PermitRootLogin yes<br>PasswordAuthentication no -&gt; yes<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/rkRhb9rFp.png" alt="image"></p>
+<p>改完後輸入以下兩個指令，重啟ssh服務並更改密碼</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="生成公私鑰"><a href="#生成公私鑰" class="headerlink" title="生成公私鑰"></a>生成公私鑰</h3><ol>
+<li><p>先在本機輸入指令(PowerShell)，your_email那些可以隨便輸<br> <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code><br> 過程中會顯示要把rsa key放到哪裡，如果不同的伺服器會要用到不同的key，就需要更改一下檔名了，我這邊就是改成id_rsa_test</p>
+ <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key(C:\Users\username/.ssh/id_rsa):     </span><br><span class="line">C:\Users\username\.ssh\id_rsa_test</span><br></pre></td></tr></table></figure></div>
+<p> 接下來會問說需不需要設定密碼，如果不需要可以直接按Enter，如果有設定，每次使用這個key的時候就會要你輸入密碼，我這裡就不設定密碼了</p>
+ <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):</span><br></pre></td></tr></table></figure></div>
+<p> 看到這個就代表成功了</p>
+ <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> C:\Users\username\.ssh\id_rsa_test</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> C:\Users\username\.ssh\id_rsa_test.pub</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:PVDWHdpVeymyv0G6HUKNKICudh80JWxOrlsO2it+nAY zerocat@demo.com</span><br><span class="line">The key<span class="string">'s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 4096]----+</span></span><br><span class="line"><span class="string">|          o. ...+|</span></span><br><span class="line"><span class="string">|    o    o  .o..o|</span></span><br><span class="line"><span class="string">|   . * ..  ....o.|</span></span><br><span class="line"><span class="string">|  . = +  o. = . .|</span></span><br><span class="line"><span class="string">|   . = .S.o+ o   |</span></span><br><span class="line"><span class="string">| E. o . . ..+    |</span></span><br><span class="line"><span class="string">| oo+.o     o +   |</span></span><br><span class="line"><span class="string">|..+=* .     + +  |</span></span><br><span class="line"><span class="string">|.o++.o     . o   |</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>輸入指令<code>cat ~/.ssh/id_rsa.pub</code><br> 把剛剛生成的公鑰複製下來(email不用複製到)<br> 這裡不一定是id_rsa.pub喔，要看剛剛在步驟一改了甚麼名，比如說我就是id_rsa_test.pub，但預設沒有做更改的話就是id_rsa.pub</p>
+</li>
+<li><p>回到剛剛用瀏覽器ssh上去的介面，輸入指令<code>vim ~/.ssh/authorized_keys</code><br> 把剛剛複製的公鑰貼上</p>
+</li>
+<li><p>接下來就可以ssh了</p>
+</li>
+</ol>
+<h3 id="本地SSH連線至VM"><a href="#本地SSH連線至VM" class="headerlink" title="本地SSH連線至VM"></a>本地SSH連線至VM</h3><p>這裡用兩種連線方式</p>
+<ol>
+<li>Windows CMD</li>
+<li>MobaXterm</li>
+</ol>
+<h4 id="Windows-CMD"><a href="#Windows-CMD" class="headerlink" title="Windows CMD"></a>Windows CMD</h4><p>打開CMD，輸入<code>ssh root@伺服器的外網ip</code><br>即可直接連上<br>比如說我這台就是<code>ssh root@104.199.187.67</code><br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/Hyj_WFud0.png" alt="image"></p>
+<p>但剛剛在生成key的時候，如果跟我一樣改了檔名，那就需要加<code>-i</code>來指定檔案<br>輸入指令<code>ssh -i "檔案路徑" root@伺服器的外網ip</code></p>
+<p>比如說我剛剛是生成id_rsa_test，就會是輸入<br><code>ssh -i "C:\Users\username\.ssh\id_rsa_test" root@104.199.187.67</code></p>
+<p>即可成功連線</p>
+<h4 id="MobaXterm"><a href="#MobaXterm" class="headerlink" title="MobaXterm"></a>MobaXterm</h4><p>打開後點左上角Session -&gt; SSH<br>Remote Host : VM的外網ip<br>username : root<br>好了之後點Advanced SSH setting -&gt; Use private key<br>選剛剛生成的私鑰(就是沒有副檔名的，有pub副檔名的是公鑰)<br>最後大概會長這樣<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/r1zmVKdd0.png" alt="image"></p>
+<p>按ok後即可成功連線<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/ry5BVF_OC.png" alt="image"></p>
+<h2 id="可能會出現的問題"><a href="#可能會出現的問題" class="headerlink" title="可能會出現的問題"></a>可能會出現的問題</h2><ul>
+<li>Problem 1. Terminal出現以下咚咚<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</span><br><span class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</span><br><span class="line">It is also possible that a host key has just been changed.</span><br><span class="line">The fingerprint for the ED25519 key sent by the remote host is</span><br><span class="line">SHA256:wlnmSUPQ8gQs/F7Ww2t224xWN70w9B1naz852egO8t0.</span><br><span class="line">Please contact your system administrator.</span><br><span class="line">Add correct host key in C:\\Users\\username/.ssh/known_hosts to get rid of this message.</span><br><span class="line">Offending ED25519 key in C:\\Users\\username/.ssh/known_hosts:7</span><br><span class="line">Host key for 104.199.187.67 has changed and you have requested strict checking.</span><br><span class="line">Host key verification failed.</span><br><span class="line">lost connection</span><br></pre></td></tr></table></figure></div></li>
+<li>Solve : 根據ip(在此為104.199.187.67)，輸入以下指令解決</li>
+</ul>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -R 104.199.187.67</span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>這篇也順利結束惹，下一篇會來介紹防火牆設置的部分</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> GCP03 - SSH連線至VM</li>
+        <li><strong>Author:</strong> Zerocatw</li>
+        <li><strong>Created at
+                :</strong> 2025-01-03 20:48:36</li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/01/03/GCP03 - SSH連線至VM/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
     </ul>
-
-    <div class="home-paginator px-7 py-5">
-        <div class="paginator">
-    <a class="extend prev" rel="prev" href="/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
 </div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/vps-%E6%9E%B6%E8%A8%AD%E7%B6%B2%E7%AB%99/">#vps&amp;架設網站</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2025/01/03/GCP04%20-%20%E5%BB%BA%E7%AB%8B%E9%98%B2%E7%81%AB%E7%89%86%E8%A6%8F%E5%89%87/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">GCP04 - 建立防火牆規則</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2025/01/03/GCP02%20-%20%E5%BB%BA%E7%AB%8B%E5%9B%BA%E6%85%8Bip/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">GCP02 - 建立固態ip</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">GCP03 - SSH連線至VM</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E8%A8%AD%E7%BD%AE"><span class="nav-text">SSH設置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9-SSH-%E8%A8%AD%E5%AE%9A%E5%85%81%E8%A8%B1-Root-%E7%99%BB%E9%8C%84%E5%92%8C%E5%AF%86%E7%A2%BC%E9%A9%97%E8%AD%89"><span class="nav-text">更改 SSH 設定允許 Root 登錄和密碼驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%91%B0"><span class="nav-text">生成公私鑰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0SSH%E9%80%A3%E7%B7%9A%E8%87%B3VM"><span class="nav-text">本地SSH連線至VM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%9C%83%E5%87%BA%E7%8F%BE%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="nav-text">可能會出現的問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%8C%E8%A8%98"><span class="nav-text">後記</span></a></li></ol>
 
     </div>
 </div>
+        </div>
+    
+</div>
 
-                    <div class="comment-container pjax"></div>
+
+
                 
 
             </div>
@@ -770,6 +783,23 @@ mjx-container[display="true"] + br {
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
@@ -853,7 +883,6 @@ mjx-container[display="true"] + br {
         containers: ["#swup"],
     });
 </script>
-
 
 
 
