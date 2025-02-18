@@ -13,18 +13,30 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://zerocatw.github.io/categories/安裝/"/>
+    <link rel="canonical" href="https://zerocatw.github.io/2025/02/18/htb - onlyhacks/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://zerocatw.github.io/categories/%E5%AE%89%E8%A3%9D/index.html">
+        <meta name="description" content="WriteupTarget : 94.237.54.42:56943 Recon訪問ip後可以看到登入介面![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;ry3t0C-91x.png  &#x3D;300x500) 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;rkHxMkM91l.png  &#x3D;300x50">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTB - OnlyHacks">
+<meta property="og:url" content="https://zerocatw.github.io/2025/02/18/HTB%20-%20OnlyHacks/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="WriteupTarget : 94.237.54.42:56943 Recon訪問ip後可以看到登入介面![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;ry3t0C-91x.png  &#x3D;300x500) 點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片![image](https:&#x2F;&#x2F;hackmd.io&#x2F;_uploads&#x2F;rkHxMkM91l.png  &#x3D;300x50">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hackmd.io/_uploads/B1mszJMcyl.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SyA0fkzcJx.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SkizQ1M9kg.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/SylSmyMqke.png">
+<meta property="og:image" content="https://hackmd.io/_uploads/HyeiXyG5Je.png">
+<meta property="article:published_time" content="2025-02-18T06:30:00.000Z">
 <meta property="article:author" content="Zerocatw">
+<meta property="article:tag" content="HackTheBox">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="IDOR">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hackmd.io/_uploads/B1mszJMcyl.png">
     
     
     <!--- Icon Part-->
@@ -36,7 +48,7 @@
     
     <title>
         
-            Category: 安裝 -
+            HTB - OnlyHacks -
         
         Zerocatw&#39;s Blog
     </title>
@@ -98,7 +110,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.3.0"><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 
 <body>
@@ -179,7 +303,7 @@
 
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active"
+                                <a class=""
                                    href="/categories/"
                                         >
                                     <i class="fa-solid fa-folder fa-fw"></i>
@@ -287,7 +411,7 @@
 
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
                            href="/categories/"
                         >
                             <span>
@@ -377,45 +501,191 @@
             <div class="main-content">
 
                 
-                    <div class="category-container">
-    <div class="category-name">
-        <i class="fa-solid fa-folder"></i>&nbsp;安裝
-    </div>
-    <div class="category-post-list">
-        
-<div class="archive-list-container">
-    
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2025</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">1</span>
-            </div>
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
             
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">HTB - OnlyHacks</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/cat.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zerocatw</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-02-18 14:30</span>
+        <span class="mobile">2025-02-18 14:30</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
                 
                     
+                        
+                        <li>
+                            <a href="/categories/HTB/">HTB</a>&nbsp;
+                        </li>
                     
-                         <!-- Close the previous LI if not the first item -->
-                        <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='01-03'>
-                    
-                    <a href="/2025/01/03/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/" class="block overflow-hidden w-fit">
-                        <span class="article-title my-0.5 text-2xl">虛擬機安裝&amp;kali</span>
-                    </a>
                     
                 
-                </li> <!-- Ensure the last item is properly closed -->
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/HackTheBox/">HackTheBox</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Web/">Web</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/IDOR/">IDOR</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
     
 </div>
 
-    </div>
-</div>
-<div class="category-paginator">
-    <div class="paginator">
-    <span class="page-number current">1</span>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="Writeup"><a href="#Writeup" class="headerlink" title="Writeup"></a>Writeup</h2><p>Target : 94.237.54.42:56943</p>
+<h3 id="Recon"><a href="#Recon" class="headerlink" title="Recon"></a>Recon</h3><p>訪問ip後可以看到登入介面<br>![image](<a class="link" target="_blank" rel="noopener" href="https://hackmd.io/_uploads/ry3t0C-91x.png">https://hackmd.io/_uploads/ry3t0C-91x.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> =300x500)</p>
+<p>點選右下角註冊，並隨便輸入帳號密碼和上傳隨便一張圖片<br>![image](<a class="link" target="_blank" rel="noopener" href="https://hackmd.io/_uploads/rkHxMkM91l.png">https://hackmd.io/_uploads/rkHxMkM91l.png <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> =300x500)</p>
+<blockquote>
+<p>這邊點選<code>Profile Picture</code>發現可以上傳圖片，所以嘗試了傳php，但最後發現都會被擋，就放棄惹</p>
+</blockquote>
+<p>成功註冊後會進到這個頁面<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/B1mszJMcyl.png" alt="image"></p>
+<p>全部按愛心後點選右上角的Matches發現可以找人聊天w<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SyA0fkzcJx.png" alt="image"></p>
+<p>跟Renata聊看看，也沒發現甚麼<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SkizQ1M9kg.png" alt="image"></p>
+<h3 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h3><p>觀察上方的url，發現目前是rid=6<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/SylSmyMqke.png" alt="image"></p>
+<p>嘗試把rid換成其他數字，最後發現數字3可以拿到flag!<br><img lazyload="" src="/images/loading.svg" data-src="https://hackmd.io/_uploads/HyeiXyG5Je.png" alt="image"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p><del>通靈</del></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> HTB - OnlyHacks</li>
+        <li><strong>Author:</strong> Zerocatw</li>
+        <li><strong>Created at
+                :</strong> 2025-02-18 14:30:00</li>
+        
+        <li>
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/02/18/HTB - OnlyHacks/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
 </div>
 
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/HackTheBox/">#HackTheBox</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Web/">#Web</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/IDOR/">#IDOR</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2025/01/03/THJCC-Writeup/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">THJCC-Writeup</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">HTB - OnlyHacks</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Writeup"><span class="nav-text">Writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Recon"><span class="nav-text">Recon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exploit"><span class="nav-text">Exploit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-text">結語</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
 </div>
 
 
@@ -484,6 +754,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
